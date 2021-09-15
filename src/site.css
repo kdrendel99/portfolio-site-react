@@ -1,19 +1,5 @@
-/* id = #. class = . */
 
-.poopy{
-  text-align: center;
-  color: green;
-  font-size: 100px;
-}
-
-.C#{
-  color:#b8a07e;
-}
-
-/* CHANGE body to .body */
-
-
-.body {
+body {
   background: #ffffff;
   color: #898989;
   font-family: 'Poppins', helvetica;

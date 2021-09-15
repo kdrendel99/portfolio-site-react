@@ -1,14 +1,11 @@
-import Swiper from "swiper";
+import Swiper, { Navigation, Pagination } from "swiper";
+import 'swiper';
 import Typed from "typed.js";
 import Isotope from 'isotope-layout';
 import GLightbox from 'glightbox';
-{/* <script src="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet"/> */}
-// import { Navigation, Pagination, Scrollbar, A11y } from 'swiper';
+import './components/Home';
 
-// import 'swiper/css';
-// import 'swiper/css/navigation';
-// import 'swiper/css/pagination';
-// import 'swiper/css/scrollbar';
+<link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/>
 
 export default (function() {
   /**

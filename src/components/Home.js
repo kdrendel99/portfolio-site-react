@@ -9,17 +9,20 @@ import jukebox from './../img/portfolio/jukebox.jpg';
 import factory from './../img/portfolio/factory.jpg';
 import taproom from './../img/portfolio/taproom.png';
 import exchange from './../img/portfolio/exchange.jpg';
-import helperJs from './../helper';
-import Swiper from "swiper";
+import './../helper';
+// import Swiper from "swiper";
 import "typed.js";
 import Isotope from 'isotope-layout';
 import GLightbox from 'glightbox';
-import '../index.css';
+import '@fortawesome/fontawesome-svg-core';
+
+
 
 function Home(props){
+
   return (
     <React.Fragment>
-  <div className="body">
+  <body>
 
     {/* ======= Hero Section ======= */}
     <div id="hero" className="home">
@@ -297,7 +300,7 @@ function Home(props){
 
     <a href="#" className="back-to-top d-flex align-items-center justify-content-center"><i className="bi bi-arrow-up-short"></i></a>
 
-  </div>
+  </body>
 
       {/* {props.projList.map((project) =>
         <Project

@@ -5,7 +5,17 @@ import App from './components/App';
 import reportWebVitals from './reportWebVitals';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap';
-// import '../node_modules/bootstrap-icons';
+import '../node_modules/swiper/bundle';
+import '../node_modules/swiper/react';
+// import '..swiper/scss';
+import '../node_modules/swiper';
+
+
+import "../node_modules/swiper/components/navigation";
+import "../node_modules/swiper/components/pagination";
+import "../node_modules/swiper/components/scrollbar";
+
+
 
 ReactDOM.render(
   <React.StrictMode>

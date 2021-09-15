@@ -5,15 +5,19 @@ import App from './components/App';
 import reportWebVitals from './reportWebVitals';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap';
-import '../node_modules/swiper/bundle';
-import '../node_modules/swiper/react';
+import 'typed.js';
+// import '../node_modules/swiper/bundle';
+// import '../node_modules/swiper/react';
 // import '..swiper/scss';
-import '../node_modules/swiper';
+// import '../node_modules/swiper';
 
 
-import "../node_modules/swiper/components/navigation";
-import "../node_modules/swiper/components/pagination";
-import "../node_modules/swiper/components/scrollbar";
+// import "../node_modules/swiper/components/navigation";
+// import "../node_modules/swiper/components/pagination";
+// import "../node_modules/swiper/components/scrollbar";
+// import "../node_modules/swiper/modules/navigation";
+// import "../node_modules/swiper/modules/pagination";
+// import "../node_modules/swiper/modules/scrollbar";
 
 
 

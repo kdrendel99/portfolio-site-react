@@ -5,7 +5,7 @@ import Isotope from 'isotope-layout';
 import GLightbox from 'glightbox';
 import './components/Home';
 
-<link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/>
+{/* <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/> */}
 
 export default (function() {
   /**

@@ -1,4 +1,5 @@
 import React from "react";
+import 'bootstrap';
 // import alaska from "./../img/alaska.jpg";
 
 function Header(){

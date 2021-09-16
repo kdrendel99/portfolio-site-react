@@ -22,6 +22,9 @@ import '../node_modules/swiper/swiper.min.css';
 //above all work
 import "../node_modules/bootstrap-icons/font/bootstrap-icons.css";
 
+import '../node_modules/glightbox/dist/css/glightbox.min.css';
+import '../node_modules/boxicons/css/boxicons.css';
+
 ReactDOM.render(
   <React.StrictMode>
     <App />

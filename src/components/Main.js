@@ -67,6 +67,7 @@ class Main extends React.Component {
       currentlyVisibleState = <Home 
       // projList={this.state.projList} 
       onProjSelection={this.handleChangingSelectedProj} />;
+      
     }
     return (
       <React.Fragment>

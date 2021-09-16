@@ -7,8 +7,6 @@
 
 import './../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import Swiper from './../node_modules/swiper/swiper-bundle.min.js';
-import './../node_modules/swiper/swiper-bundle.min.css';
-import './../node_modules/swiper/swiper.min.css';
 import Typed from "typed.js";
 import Isotope from 'isotope-layout';
 import GLightbox from 'glightbox';

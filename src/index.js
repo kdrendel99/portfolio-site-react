@@ -1,10 +1,23 @@
+//THESE ALL WORK WITH SWIPER v 6.8.4, AND THIS TAG IN THE HEAD OF PUBLIC/INDEX.HTML: <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/>
+    // import React from 'react';
+    // import ReactDOM from 'react-dom';
+    // import './index.css';
+    // import App from './components/App';
+    // import reportWebVitals from './reportWebVitals';
+    // import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
+    // import './../node_modules/swiper';
+//END OF WORKING IMPORTS. ATTEMPTING TO TRY DIFFERENT IMPORTS TO FIX SWIPER.
+
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './components/App';
 import reportWebVitals from './reportWebVitals';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
-import './../node_modules/swiper';
+import '../node_modules/swiper/swiper-bundle.min.js';
+import '../node_modules/swiper/swiper-bundle.min.css';
+import '../node_modules/swiper/swiper.min.css';
+
 
 ReactDOM.render(
   <React.StrictMode>

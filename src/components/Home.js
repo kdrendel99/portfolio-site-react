@@ -9,13 +9,9 @@ import jukebox from './../img/portfolio/jukebox.jpg';
 import factory from './../img/portfolio/factory.jpg';
 import taproom from './../img/portfolio/taproom.png';
 import exchange from './../img/portfolio/exchange.jpg';
-import './../helper';
-// import Swiper from "swiper";
-import "typed.js";
-import Isotope from 'isotope-layout';
-import GLightbox from 'glightbox';
-import '@fortawesome/fontawesome-svg-core';
 
+
+import 'swiper/bundle';
 
 
 function Home(props){

@@ -1,13 +1,9 @@
-import Swiper, { Navigation, Pagination } from "swiper";
-import 'swiper';
+import Swiper, { Navigation, Pagination } from "./../node_modules/swiper";
 import Typed from "typed.js";
 import Isotope from 'isotope-layout';
 import GLightbox from 'glightbox';
-import './components/Home';
 
-{/* <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/> */}
-
-export default (function() {
+const runAnimations = function() {
   /**
    * Easy selector helper function
    */
@@ -260,4 +256,5 @@ export default (function() {
     }
   });
 
-})()
+}
+export default runAnimations;

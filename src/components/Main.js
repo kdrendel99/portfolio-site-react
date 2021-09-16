@@ -2,6 +2,9 @@ import React from 'react';
 import Home from './Home';
 import ProjectDetail from './ProjectDetail';
 import AllProjects from './AllProjects';
+import runAnimations from './../helper';
+// import 'swiper';
+
 
 class Main extends React.Component {
   constructor(props) {
@@ -10,6 +13,10 @@ class Main extends React.Component {
       projList: AllProjects,
       selectedProj: null
     };
+  }
+
+  componentDidMount() {
+    runAnimations();
   }
 
   handleClick = () => {

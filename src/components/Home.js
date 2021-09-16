@@ -110,7 +110,7 @@ function Home(props){
               <div className="swiper-slide">
                 <div className="services-block">
                   {/* <i className="bi bi-calendar4-week"></i> */}
-                  <span className="C#"><h3>C#</h3></span>
+                  <span className="cSharp"><h3>C#</h3></span>
                   <span>C#/.NET</span>
                   <p className="separator">Lorem ipsum C#/.NET details go here.</p>
                 </div>
@@ -297,7 +297,7 @@ function Home(props){
                     </div>
 
                     <div className="mt-0">
-                      <input type="submit" className="btn btn-defeault btn-send" value="Send message"/>
+                      <input type="submit" className="btn btn-default btn-send" value="Send message"/>
                     </div>
                   </div>
                 </form>

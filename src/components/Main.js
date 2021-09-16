@@ -58,11 +58,9 @@ class Main extends React.Component {
 
   render(){
     let currentlyVisibleState = null;
-    let buttonText = null;
 
     if (this.state.selectedProj != null) {
       currentlyVisibleState = <ProjectDetail project = {this.state.selectedProj} />
-      buttonText = "Return to Home";
     } 
 
     else {
@@ -73,7 +71,6 @@ class Main extends React.Component {
     return (
       <React.Fragment>
         {currentlyVisibleState}
-        <button onClick={this.handleClick}>{buttonText}</button>
       </React.Fragment>
     );
   }

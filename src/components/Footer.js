@@ -1,5 +1,4 @@
 import React from "react";
-import 'bootstrap';
 
 function Footer(){
   return (
@@ -18,7 +17,7 @@ function Footer(){
         </div>
 
         <div class="credits">
-          Designed by Karlson Drendel</a>
+          Designed by Karlson Drendel
         </div>
       </div>
     </div>
@@ -26,4 +25,4 @@ function Footer(){
   );
 }
 
-export default Header;
+export default Footer;

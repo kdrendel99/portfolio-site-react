@@ -1,20 +1,3 @@
-//THESE ALL WORK WITH SWIPER v 6.8.4, AND THIS TAG IN THE HEAD OF PUBLIC/INDEX.HTML: <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/>
-      // import React from "react";
-      // import PropTypes from "prop-types";
-      // import Project from "./Project";
-      // import useScript from './useScript';
-      // import me from './../img/me.jpg';
-      // import rocket from './../img/portfolio/rocket.jpg';
-      // import park from './../img/portfolio/nationalpark.jpg';
-      // import jukebox from './../img/portfolio/jukebox.jpg';
-      // import factory from './../img/portfolio/factory.jpg';
-      // import taproom from './../img/portfolio/taproom.png';
-      // import exchange from './../img/portfolio/exchange.jpg';
-
-      // import 'swiper/bundle';
-//END OF WORKING IMPORTS. ATTEMPTING TO TRY DIFFERENT IMPORTS TO FIX SWIPER.
-
-
 import React from "react";
 import PropTypes from "prop-types";
 import Project from "./Project";
@@ -38,6 +21,9 @@ function Home(props){
   const proj4 = 45;
   const proj5 = 55;
   const proj6 = 65;
+  const cSharpColor = {
+    'color': '#b8a07e',
+  };
 
   return (
     <React.Fragment>
@@ -116,7 +102,7 @@ function Home(props){
               <div className="swiper-slide">
                 <div className="services-block">
                   {/* <i className="bi bi-calendar4-week"></i> */}
-                  <span className="cSharp"><h3>C#</h3></span>
+                  <h3 style={{color: "#b8a07e"}}>C#</h3>
                   <span>C#/.NET</span>
                   <p className="separator">Lorem ipsum C#/.NET details go here.</p>
                 </div>
@@ -171,7 +157,7 @@ function Home(props){
                 <li data-filter="*" className="filter-active">All</li>
                 <li data-filter=".filter-app">JavaScript</li>
                 <li data-filter=".filter-card">C#</li>
-                <li data-filter=".filter-web">Web</li>
+                {/* <li data-filter=".filter-web">Web</li> */}
               </ul>
             </div>
           </div>

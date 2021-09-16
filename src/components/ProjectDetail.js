@@ -10,9 +10,11 @@ import exchange from './../img/portfolio/exchange.jpg';
 
 function ProjectDetail(props) {
   const { project, resetSelectedProj } = props;
+  const [img, setImg] = React.useState(null);
 
   function renderImage(){
-    const img = project.image;
+    setImg(project.image);
+
     switch (img) {
       case 'rocket':
         return rocket;
@@ -97,7 +99,8 @@ function ProjectDetail(props) {
 }
 
 ProjectDetail.propTypes = {
-  proj: PropTypes.object,
+  project: PropTypes.object,
+  resetSelectedProj: PropTypes.func
 }
 
 export default ProjectDetail;

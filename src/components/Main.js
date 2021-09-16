@@ -11,12 +11,16 @@ class Main extends React.Component {
     super(props);
     this.state = {
       projList: AllProjects,
-      selectedProj: null
+      selectedProj: null,
+      animations: false
     };
   }
 
   componentDidMount() {
     runAnimations();
+    this.setState({
+      animations: true,
+    });
   }
 
   handleClick = () => {
@@ -25,14 +29,7 @@ class Main extends React.Component {
         selectedProj: null,
       });
     } 
-    // else {
-    //   this.setState(prevState => ({
-    //     projDetailsVisibleOnPage: !prevState.projDetailsVisibleOnPage,
-    //   }));
-    // }
   }
-
-  
 
   // map {
   //   {props.projList.map((project) =>

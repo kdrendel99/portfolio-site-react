@@ -32,6 +32,12 @@ import './../../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import './../../node_modules/swiper/swiper-bundle.min.js';
 
 function Home(props){
+  const proj1 = 15;
+  const proj2 = 25;
+  const proj3 = 35;
+  const proj4 = 45;
+  const proj5 = 55;
+  const proj6 = 65;
 
   return (
     <React.Fragment>
@@ -178,7 +184,7 @@ function Home(props){
               <h4>Satoshi's Crypto</h4>
               <p>ASP.NET Core MVC application that scrapes reddit for the most mentioned cryptos in the last day, tallies the results, and returns them to the user.</p>
                 <a href={rocket} data-gallery="portfolioGallery" className="portfolio-lightbox preview-link" title="Satoshi's Crypto"><i className="bx bx-plus"></i></a>
-                <a href="/portfolio-details/satoshi.html" className="details-link" title="More Details"><i className="bx bx-link"></i></a>
+                <a onClick = {() => props.onProjSelection(proj1)}className="details-link" title="More Details"><i className="bx bx-link"></i></a>
               {/* <!-- <a href="assets/img/portfolio/portfolio-1.jpg" data-gallery="portfolioGallery" className="portfolio-lightbox preview-link" title="Satoshi's Crypto"><i className="bx bx-plus"></i></a>
               <a href="portfolio-details.html" className="details-link" title="More Details"><i className="bx bx-link"></i></a> --> */}
             </div>
@@ -190,7 +196,7 @@ function Home(props){
               <h4>National Parks API</h4>
               <p>An API containing query-able national parks. Full CRUD functionality, and token-based JSON Authentication for POST, PUT, and PATCH updates to the database.</p>
               <a href={park} data-gallery="portfolioGallery" className="portfolio-lightbox preview-link" title="Web 3"><i className="bx bx-plus"></i></a>
-              <a href="/portfolio-details/nationalparks.html" className="details-link" title="More Details"><i className="bx bx-link"></i></a>
+              <a onClick = {() => props.onProjSelection(proj2)}className="details-link" title="More Details"><i className="bx bx-link"></i></a>
             </div>
           </div>
 
@@ -203,7 +209,7 @@ function Home(props){
                 collaborating using Git. JavaScript, CSS, Jest, Webpack, OAuth2,
                 Bootstrap, and Node.js.</p>
               <a href={jukebox} data-gallery="portfolioGallery" className="portfolio-lightbox preview-link" title="App 2"><i className="bx bx-plus"></i></a>
-              <a href="/portfolio-details/hsjukebox.html" className="details-link" title="More Details"><i className="bx bx-link"></i></a>
+              <a onClick = {() => props.onProjSelection(proj3)}className="details-link" title="More Details"><i className="bx bx-link"></i></a>
             </div>
           </div>
 
@@ -213,7 +219,7 @@ function Home(props){
               <h4>Factory Manager</h4>
               <p>An ASP.NET Core MVC application built on Entity Framework Core. Allows the user (the factory manager) full CRUD functionality to the SQL database using a many-to-many relationship</p>
               <a href={factory} data-gallery="portfolioGallery" className="portfolio-lightbox preview-link" title="Card 2"><i className="bx bx-plus"></i></a>
-              <a href="/portfolio-details/factory.html" className="details-link" title="More Details"><i className="bx bx-link"></i></a>
+              <a onClick = {() => props.onProjSelection(proj4)}className="details-link" title="More Details"><i className="bx bx-link"></i></a>
             </div>
           </div>
 
@@ -223,7 +229,7 @@ function Home(props){
               <h4>Taproom Manager</h4>
               <p>React application that allows a 'manager' to update and modify their keg inventory.</p>
               <a href={taproom} data-gallery="portfolioGallery" className="portfolio-lightbox preview-link" title="Web 2"><i className="bx bx-plus"></i></a>
-              <a href="/portfolio-details/taproom.html" className="details-link" title="More Details"><i className="bx bx-link"></i></a>
+              <a onClick = {() => props.onProjSelection(proj5)}className="details-link" title="More Details"><i className="bx bx-link"></i></a>
             </div>
           </div>
 
@@ -233,7 +239,7 @@ function Home(props){
               <h4>Exchange Rate</h4>
               <p>A vanilla JavaScript web application that uses an API to convert the current exchange rate for the user input.</p>
               <a href={exchange} data-gallery="portfolioGallery" className="portfolio-lightbox preview-link" title="App 3"><i className="bx bx-plus"></i></a>
-              <a href="/portfolio-details/currency.html" className="details-link" title="More Details"><i className="bx bx-link"></i></a>
+              <a onClick = {() => props.onProjSelection(proj6)}className="details-link" title="More Details"><i className="bx bx-link"></i></a>
             </div>
           </div>
 

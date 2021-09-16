@@ -60,14 +60,15 @@ class Main extends React.Component {
     let currentlyVisibleState = null;
 
     if (this.state.selectedProj != null) {
-      currentlyVisibleState = <ProjectDetail project = {this.state.selectedProj} />
+      currentlyVisibleState = <ProjectDetail project = {this.state.selectedProj} resetSelectedProj = {this.handleClick}/>
     } 
 
     else {
       currentlyVisibleState = <Home 
       // projList={this.state.projList} 
-      onProjSelection={this.handleChangingSelectedProj} />;
-      
+      onProjSelection={this.handleChangingSelectedProj} 
+    
+      />;
     }
     return (
       <React.Fragment>

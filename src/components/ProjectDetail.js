@@ -9,39 +9,39 @@ import taproom from './../img/portfolio/taproom.png';
 import exchange from './../img/portfolio/exchange.jpg';
 
 function ProjectDetail(props) {
-  // const [img, setImg] = React.useState(null);
+  const [img, setImg] = React.useState(null);
   const { project, resetSelectedProj } = props;
 
-  // function renderImage(){
-  //   let incomingImg = project.image;
+  function renderImage(){
+    let incomingImg = project.image;
 
-  //   switch (incomingImg) {
-  //     case 'rocket':
-  //       setImg(rocket);
-  //       break;
-  //     case 'park':
-  //       setImg(park);
-  //       break;
-  //     case 'jukebox':
-  //       setImg(jukebox);
-  //       break;
-  //     case 'factory':
-  //       setImg(factory);
-  //       break;
-  //     case 'taproom':
-  //       setImg(taproom);
-  //       break;
-  //     case 'exchange':
-  //       setImg(exchange);
-  //       break;
-  //     default:
-  //       setImg(null);
-  //   }
-  // }
+    switch (incomingImg) {
+      case 'rocket':
+        setImg(rocket);
+        break;
+      case 'park':
+        setImg(park);
+        break;
+      case 'jukebox':
+        setImg(jukebox);
+        break;
+      case 'factory':
+        setImg(factory);
+        break;
+      case 'taproom':
+        setImg(taproom);
+        break;
+      case 'exchange':
+        setImg(exchange);
+        break;
+      default:
+        setImg(null);
+    }
+  }
 
-  // useEffect(() => {
-  //   renderImage();
-  // })
+  useEffect(() => {
+    renderImage();
+  })
   return(
     <React.Fragment>
       <main id="main">
@@ -70,7 +70,7 @@ function ProjectDetail(props) {
                 <div className="swiper-wrapper align-items-center">
 
                   <div className="swiper-slide">
-                    <img src={factory} alt={`${project.imgDes}`}/>
+                    <img src={img} alt={`${project.imgDes}`}/>
                   </div>
 
                   {/* <div className="swiper-slide">

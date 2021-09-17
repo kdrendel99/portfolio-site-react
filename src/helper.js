@@ -1,10 +1,3 @@
-//THESE ALL WORK WITH SWIPER v 6.8.4, AND THIS TAG IN THE HEAD OF PUBLIC/INDEX.HTML: <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/>
-  // import Swiper, { Navigation, Pagination } from "./../node_modules/swiper";
-  // import Typed from "typed.js";
-  // import Isotope from 'isotope-layout';
-  // import GLightbox from 'glightbox';
-//END OF WORKING IMPORTS. ATTEMPTING TO TRY DIFFERENT IMPORTS TO FIX SWIPER.
-
 import './../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import Swiper from './../node_modules/swiper/swiper-bundle.min.js';
 import Typed from "typed.js";

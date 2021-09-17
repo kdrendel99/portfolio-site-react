@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import PropTypes from "prop-types";
 
 import rocket from './../img/portfolio/rocket.jpg';
@@ -9,36 +9,46 @@ import taproom from './../img/portfolio/taproom.png';
 import exchange from './../img/portfolio/exchange.jpg';
 
 function ProjectDetail(props) {
+  // const [img, setImg] = React.useState(null);
   const { project, resetSelectedProj } = props;
-  const [img, setImg] = React.useState(null);
 
-  function renderImage(){
-    setImg(project.image);
+  // function renderImage(){
+  //   let incomingImg = project.image;
 
-    switch (img) {
-      case 'rocket':
-        return rocket;
-      case 'park':
-        return park;
-      case 'jukebox':
-        return jukebox;
-      case 'factory':
-        return factory;
-      case 'taproom':
-        return taproom;
-      case 'exchange':
-        return exchange;
-    }
-  }
+  //   switch (incomingImg) {
+  //     case 'rocket':
+  //       setImg(rocket);
+  //       break;
+  //     case 'park':
+  //       setImg(park);
+  //       break;
+  //     case 'jukebox':
+  //       setImg(jukebox);
+  //       break;
+  //     case 'factory':
+  //       setImg(factory);
+  //       break;
+  //     case 'taproom':
+  //       setImg(taproom);
+  //       break;
+  //     case 'exchange':
+  //       setImg(exchange);
+  //       break;
+  //     default:
+  //       setImg(null);
+  //   }
+  // }
 
+  // useEffect(() => {
+  //   renderImage();
+  // })
   return(
     <React.Fragment>
       <main id="main">
+      <section className="breadcrumbs">
+        <div className="container">
 
-      <section class="breadcrumbs">
-        <div class="container">
-
-          <div class="d-flex justify-content-between align-items-center">
+          <div className="d-flex justify-content-between align-items-center">
             <h2>{project.name} Project Details</h2>
             <ol>
               <li><a onClick = {() => resetSelectedProj()}>Home</a></li>
@@ -50,42 +60,42 @@ function ProjectDetail(props) {
         </div>
       </section>
 
-      <section id="portfolio-details" class="portfolio-details">
-        <div class="container">
+      <section id="portfolio-details" className="portfolio-details">
+        <div className="container">
 
-          <div class="row gy-4">
+          <div className="row gy-4">
 
-            <div class="col-lg-8">
-              <div class="portfolio-details-slider swiper-container">
-                <div class="swiper-wrapper align-items-center">
+            <div className="col-lg-8">
+              <div className="portfolio-details-slider swiper-container">
+                <div className="swiper-wrapper align-items-center">
 
-                  <div class="swiper-slide">
-                    <img src={renderImage()} alt={`${project.imgDes}`}/>
+                  <div className="swiper-slide">
+                    <img src={factory} alt={`${project.imgDes}`}/>
                   </div>
 
-                  {/* <div class="swiper-slide">
+                  {/* <div className="swiper-slide">
                     <img src="../../img/{project.image}" alt="{project.imgDes}"/>
                   </div>
 
-                  <div class="swiper-slide">
+                  <div className="swiper-slide">
                     <img src="../../img/{project.image}" alt="{project.imgDes}"/>
                   </div> */}
 
                 </div>
-                {/* <div class="swiper-pagination"></div> */}
+                {/* <div className="swiper-pagination"></div> */}
               </div>
             </div>
 
-            <div class="col-lg-4">
-              <div class="portfolio-info">
+            <div className="col-lg-4">
+              <div className="portfolio-info">
                 <h3>Project information</h3>
                 <ul>
                   <li><strong>Category</strong>: {project.category}</li>
                   <li><strong>Project date</strong>: {project.projDate}</li>
-                  <li><strong>Project URL</strong>: <a href="{project.githubUrl}">Here</a></li>
+                  <li><strong>Project URL</strong>: <a href={`${project.githubUrl}`}>Here</a></li>
                 </ul>
               </div>
-              <div class="portfolio-description">
+              <div className="portfolio-description">
                 <h2>This is an example of portfolio detail</h2>
                 <p>{project.description}</p>
               </div>

@@ -2,7 +2,7 @@ import React from 'react';
 import Home from './Home';
 import ProjectDetail from './ProjectDetail';
 import AllProjects from './AllProjects';
-import runAnimations from './../helper';
+// import runAnimations from './../helper';
 // import 'swiper';
 
 
@@ -11,17 +11,13 @@ class Main extends React.Component {
     super(props);
     this.state = {
       projList: AllProjects,
-      selectedProj: null,
-      animations: false
+      selectedProj: null
     };
   }
 
-  componentDidMount() {
-    runAnimations();
-    this.setState({
-      animations: true,
-    });
-  }
+  // componentDidMount() {
+  //   runAnimations();
+  // }
 
   handleClick = () => {
     if (this.state.selectedProj != null) {
@@ -29,7 +25,14 @@ class Main extends React.Component {
         selectedProj: null,
       });
     } 
+    // else {
+    //   this.setState(prevState => ({
+    //     projDetailsVisibleOnPage: !prevState.projDetailsVisibleOnPage,
+    //   }));
+    // }
   }
+
+  
 
   // map {
   //   {props.projList.map((project) =>

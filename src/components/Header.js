@@ -1,6 +1,7 @@
 import React from "react";
-import 'bootstrap';
-import './../../node_modules/bootstrap/dist/css/bootstrap.min.css';
+// import 'bootstrap';
+// import './../../node_modules/bootstrap/dist/css/bootstrap.min.css';
+// import './../../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js';
 
 function Header(){
   return (
@@ -16,7 +17,7 @@ function Header(){
               <li><a className="nav-link scrollto" href="#about">About</a></li>
               <li><a className="nav-link  scrollto" href="#portfolio">Portfolio</a></li>
               <li><a className="nav-link  scrollto" href="#journal">Blog</a></li>
-          {/* <li className="dropdown"><a href="#"><span>Drop Down</span> <i className="bi bi-chevron-down"></i></a>
+          <li className="dropdown"><a href="#"><span>Drop Down</span> <i className="bi bi-chevron-down"></i></a>
             <ul>
               <li><a href="#">Drop Down 1</a></li>
               <li className="dropdown"><a href="#"><span>Deep Drop Down</span> <i className="bi bi-chevron-right"></i></a>
@@ -32,7 +33,7 @@ function Header(){
               <li><a href="#">Drop Down 3</a></li>
               <li><a href="#">Drop Down 4</a></li>
             </ul>
-          </li> */}
+          </li>
           
               <li><a className="nav-link scrollto" href="#contact">Contact</a></li>
             </ul>

@@ -32,24 +32,6 @@ class Main extends React.Component {
     // }
   }
 
-  
-
-  // map {
-  //   {props.projList.map((project) =>
-  //     <Project
-  //       whenProjClicked = { props.onProjSelection }
-  //       name={project.name}
-  //       image={project.image}
-  //       imgDes={project.imgDes}
-  //       category={project.category}
-  //       projDate={project.projDate}
-  //       githubUrl={project.githubUrl}
-  //       description={project.description}
-  //       id={project.id}
-  //       key={project.id}/>
-  //   )}
-  // }
-
   handleChangingSelectedProj = (id) => {
     const selectedProj = this.state.projList.filter(proj => proj.id === id)[0];
     console.log(selectedProj.name);
@@ -65,7 +47,7 @@ class Main extends React.Component {
 
     else {
       currentlyVisibleState = <Home 
-      // projList={this.state.projList} 
+      projList={this.state.projList} 
       onProjSelection={this.handleChangingSelectedProj} 
     
       />;

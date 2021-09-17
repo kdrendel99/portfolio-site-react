@@ -1,12 +1,7 @@
 import React, { useEffect } from "react";
+import Project from './Project';
 import PropTypes from "prop-types";
 import me from './../img/me.jpg';
-import rocket from './../img/portfolio/rocket.jpg';
-import park from './../img/portfolio/nationalpark.jpg';
-import jukebox from './../img/portfolio/jukebox.jpg';
-import factory from './../img/portfolio/factory.jpg';
-import taproom from './../img/portfolio/taproom.png';
-import exchange from './../img/portfolio/exchange.jpg';
 import runAnimations from './../helper';
 
 // import './../../node_modules/bootstrap/dist/css/bootstrap.min.css';
@@ -16,12 +11,7 @@ import './../../node_modules/swiper/swiper-bundle.min.js';
 
 function Home(props){
   const [animations, setAnimations] = React.useState(true);
-  const proj1 = 15;
-  const proj2 = 25;
-  const proj3 = 35;
-  const proj4 = 45;
-  const proj5 = 55;
-  const proj6 = 65;
+
   useEffect(() => {
     if(animations){
       if (animations){
@@ -173,72 +163,19 @@ function Home(props){
           </div>
 
           <div className="row portfolio-container">
-
-          <div className="col-lg-4 col-md-6 portfolio-item filter-card">
-            <img src={rocket} className="img-fluid" alt=""/>
-            <div className="portfolio-info">
-              <h4>Satoshi's Crypto</h4>
-              <p>ASP.NET Core MVC application that scrapes reddit for the most mentioned cryptos in the last day, tallies the results, and returns them to the user.</p>
-                <a href={rocket} data-gallery="portfolioGallery" className="portfolio-lightbox preview-link" title="Satoshi's Crypto"><i className="bx bx-plus"></i></a>
-                <a onClick = {() => props.onProjSelection(proj1)}className="details-link" title="More Details"><i className="bx bx-link"></i></a>
-              {/* <!-- <a href="assets/img/portfolio/portfolio-1.jpg" data-gallery="portfolioGallery" className="portfolio-lightbox preview-link" title="Satoshi's Crypto"><i className="bx bx-plus"></i></a>
-              <a href="portfolio-details.html" className="details-link" title="More Details"><i className="bx bx-link"></i></a> --> */}
-            </div>
-          </div>
-
-          <div className="col-lg-4 col-md-6 portfolio-item filter-card">
-            <img src={park} className="img-fluid" alt=""/>
-            <div className="portfolio-info">
-              <h4>National Parks API</h4>
-              <p>An API containing query-able national parks. Full CRUD functionality, and token-based JSON Authentication for POST, PUT, and PATCH updates to the database.</p>
-              <a href={park} data-gallery="portfolioGallery" className="portfolio-lightbox preview-link" title="Web 3"><i className="bx bx-plus"></i></a>
-              <a onClick = {() => props.onProjSelection(proj2)}className="details-link" title="More Details"><i className="bx bx-link"></i></a>
-            </div>
-          </div>
-
-          <div className="col-lg-4 col-md-6 portfolio-item filter-app">
-            <img src={jukebox} className="img-fluid" alt=""/>
-            <div className="portfolio-info">
-              <h4>High School Jukebox</h4>
-              <p>UI-focused web app that returns the user a list of playable songs
-                from their high-school years. Built with 3 other colleagues
-                collaborating using Git. JavaScript, CSS, Jest, Webpack, OAuth2,
-                Bootstrap, and Node.js.</p>
-              <a href={jukebox} data-gallery="portfolioGallery" className="portfolio-lightbox preview-link" title="App 2"><i className="bx bx-plus"></i></a>
-              <a onClick = {() => props.onProjSelection(proj3)}className="details-link" title="More Details"><i className="bx bx-link"></i></a>
-            </div>
-          </div>
-
-          <div className="col-lg-4 col-md-6 portfolio-item filter-card">
-            <img src={factory} className="img-fluid" alt=""/>
-            <div className="portfolio-info">
-              <h4>Factory Manager</h4>
-              <p>An ASP.NET Core MVC application built on Entity Framework Core. Allows the user (the factory manager) full CRUD functionality to the SQL database using a many-to-many relationship</p>
-              <a href={factory} data-gallery="portfolioGallery" className="portfolio-lightbox preview-link" title="Card 2"><i className="bx bx-plus"></i></a>
-              <a onClick = {() => props.onProjSelection(proj4)}className="details-link" title="More Details"><i className="bx bx-link"></i></a>
-            </div>
-          </div>
-
-          <div className="col-lg-4 col-md-6 portfolio-item filter-app">
-            <img src={taproom} className="img-fluid" alt=""/>
-            <div className="portfolio-info">
-              <h4>Taproom Manager</h4>
-              <p>React application that allows a 'manager' to update and modify their keg inventory.</p>
-              <a href={taproom} data-gallery="portfolioGallery" className="portfolio-lightbox preview-link" title="Web 2"><i className="bx bx-plus"></i></a>
-              <a onClick = {() => props.onProjSelection(proj5)}className="details-link" title="More Details"><i className="bx bx-link"></i></a>
-            </div>
-          </div>
-
-          <div className="col-lg-4 col-md-6 portfolio-item filter-app">
-            <img src={exchange} className="img-fluid" alt=""/>
-            <div className="portfolio-info">
-              <h4>Exchange Rate</h4>
-              <p>A vanilla JavaScript web application that uses an API to convert the current exchange rate for the user input.</p>
-              <a href={exchange} data-gallery="portfolioGallery" className="portfolio-lightbox preview-link" title="App 3"><i className="bx bx-plus"></i></a>
-              <a onClick = {() => props.onProjSelection(proj6)}className="details-link" title="More Details"><i className="bx bx-link"></i></a>
-            </div>
-          </div>
-
+            {props.projList.map((project) =>
+              <Project
+                whenProjClicked = { props.onProjSelection }
+                name={project.name}
+                image={project.image}
+                imgDes={project.imgDes}
+                type={project.type}
+                category={project.category}
+                projDate={project.projDate}
+                description={project.description}
+                id={project.id}
+                key={project.id}/>
+            )}
           </div>
         </div>
 
@@ -316,20 +253,6 @@ function Home(props){
     <a href="#" className="back-to-top d-flex align-items-center justify-content-center"><i className="bi bi-arrow-up-short"></i></a>
 
   </body>
-
-      {/* {props.projList.map((project) =>
-        <Project
-          whenProjClicked = { props.onProjSelection }
-          name={project.name}
-          image={project.image}
-          imgDes={project.imgDes}
-          category={project.category}
-          projDate={project.projDate}
-          githubUrl={project.githubUrl}
-          description={project.description}
-          id={project.id}
-          key={project.id}/>
-      )} */}
     </React.Fragment>
   );
 }

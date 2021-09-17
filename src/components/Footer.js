@@ -3,20 +3,20 @@ import React from "react";
 function Footer(){
   return (
     <React.Fragment>
-      <div id="footer" class="text-center">
-      <div class="container">
-        <div class="socials-media text-center">
+      <div id="footer" className="text-center">
+      <div className="container">
+        <div className="socials-media text-center">
 
-          <ul class="list-unstyled">
-            {/* <li><a href="#"><i class="bi bi-facebook"></i></a></li>  */}
-            <li><a href="https://www.instagram.com/k.drendel/"><i class="bi bi-instagram"></i></a></li>
-            <li><a href="https://www.linkedin.com/in/karlson-drendel/"><i class="bi bi-linkedin"></i></a></li>
-            <li><a href="https://github.com/kdrendel99"><i class="fab fa-github-square"></i></a></li>
+          <ul className="list-unstyled">
+            {/* <li><a href="#"><i className="bi bi-facebook"></i></a></li>  */}
+            <li><a href="https://www.instagram.com/k.drendel/"><i className="bi bi-instagram"></i></a></li>
+            <li><a href="https://www.linkedin.com/in/karlson-drendel/"><i className="bi bi-linkedin"></i></a></li>
+            <li><a href="https://github.com/kdrendel99"><i className="fab fa-github-square"></i></a></li>
           </ul>
 
         </div>
 
-        <div class="credits">
+        <div className="credits">
           Designed by Karlson Drendel
         </div>
       </div>

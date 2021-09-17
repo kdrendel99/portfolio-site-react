@@ -1,7 +1,5 @@
-import React from "react";
+import React, { useEffect } from "react";
 import PropTypes from "prop-types";
-import Project from "./Project";
-import useScript from './useScript';
 import me from './../img/me.jpg';
 import rocket from './../img/portfolio/rocket.jpg';
 import park from './../img/portfolio/nationalpark.jpg';
@@ -9,21 +7,33 @@ import jukebox from './../img/portfolio/jukebox.jpg';
 import factory from './../img/portfolio/factory.jpg';
 import taproom from './../img/portfolio/taproom.png';
 import exchange from './../img/portfolio/exchange.jpg';
+import runAnimations from './../helper';
 
-import './../../node_modules/bootstrap/dist/css/bootstrap.min.css';
+// import './../../node_modules/bootstrap/dist/css/bootstrap.min.css';
+// import './../../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js';
 // import './../../node_modules/bootstrap-icons/font/bootstrap-icons.css';
 import './../../node_modules/swiper/swiper-bundle.min.js';
 
 function Home(props){
+  const [animations, setAnimations] = React.useState(true);
   const proj1 = 15;
   const proj2 = 25;
   const proj3 = 35;
   const proj4 = 45;
   const proj5 = 55;
   const proj6 = 65;
-  const cSharpColor = {
-    'color': '#b8a07e',
-  };
+  useEffect(() => {
+    if(animations){
+      if (animations){
+        runAnimations();
+      }
+    }
+    return () => {
+      setAnimations(false);
+    }
+  })
+
+
 
   return (
     <React.Fragment>

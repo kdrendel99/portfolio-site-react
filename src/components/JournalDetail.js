@@ -2,7 +2,7 @@ import React, {useEffect} from "react";
 import PropTypes from "prop-types";
 import clouds from './../img/head-in-the-clouds.jpg';
 import alaska from './../img/alaska.jpg';
-import darkroom from './../img/darkroom.jpg';
+import darkroom from './../img/darkroom-crop.jpg';
 
 import './../../node_modules/swiper/swiper-bundle.min.js';
 
@@ -58,7 +58,14 @@ function JournalDetail(props){
                   <div className="container-main single-main">
                     <div className="col-md-12">
                       <div className="block-main mb-30">
-                        <img src={img} className="img-responsive" alt="reviews2"/>
+
+                        
+                        <img src={img} 
+                        className="journal-image" 
+                        // className="img-responsive" 
+                        alt="reviews2"/>
+
+
                         <div className="content-main single-post padDiv">
                           <div className="journal-txt">
                             <h4><a href="#">{journal.name}</a></h4>

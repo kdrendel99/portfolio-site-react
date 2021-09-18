@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import Project from './Project';
+import Journal from './Journal';
 import PropTypes from "prop-types";
 import me from './../img/me.jpg';
 import runAnimations from './../helper';
@@ -180,9 +181,42 @@ function Home(props){
         </div>
 
       </div>
-        {/* End Portfolio Section
+        {/* End Portfolio Section */}
 
-      ======= Contact Section ======= */}
+        {/* ======= Journal Section =======  */}
+      <div id="journal" className="text-left paddsection">
+        <div className="container">
+          <div className="section-title text-center">
+            <h2>journal</h2>
+          </div>
+        </div>
+
+        <div className="container">
+          <div className="journal-block">
+            <div className="row">
+
+            {props.journList.map((journal) =>
+              <Journal
+                whenJournClicked = { props.onJournSelection }
+                name={journal.name}
+                image={journal.image}
+                imgDes={journal.imgDes}
+                projDate={journal.projDate}
+                shortDes={journal.shortDes}
+                description={journal.description}
+                id={journal.id}
+                key={journal.id}/>
+            )}
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+      {/* <!-- End Journal Section --> */}
+        
+
+      {/* ======= Contact Section ======= */}
       <div id="contact" className="paddsection">
         <div className="container">
           <div className="contact-block1">

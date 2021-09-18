@@ -1,7 +1,9 @@
 import React from 'react';
 import Home from './Home';
 import ProjectDetail from './ProjectDetail';
+import JournalDetail from './JournalDetail';
 import AllProjects from './AllProjects';
+import AllJournals from './AllJournals';
 // import runAnimations from './../helper';
 // import 'swiper';
 
@@ -11,25 +13,19 @@ class Main extends React.Component {
     super(props);
     this.state = {
       projList: AllProjects,
-      selectedProj: null
+      selectedProj: null,
+      journList: AllJournals,
+      selectedJourn: null
     };
   }
-
-  // componentDidMount() {
-  //   runAnimations();
-  // }
 
   handleClick = () => {
     if (this.state.selectedProj != null) {
       this.setState({
         selectedProj: null,
+        selectedJourn: null
       });
     } 
-    // else {
-    //   this.setState(prevState => ({
-    //     projDetailsVisibleOnPage: !prevState.projDetailsVisibleOnPage,
-    //   }));
-    // }
   }
 
   handleChangingSelectedProj = (id) => {
@@ -38,18 +34,28 @@ class Main extends React.Component {
     this.setState({selectedProj: selectedProj});
   }
 
+  handleChangingSelectedJourn = (id) => {
+    const selectedJourn = this.state.journList.filter(journ => journ.id === id)[0];
+    console.log(selectedJourn.name);
+    this.setState({selectedJourn: selectedJourn});
+  }
+
   render(){
     let currentlyVisibleState = null;
 
     if (this.state.selectedProj != null) {
       currentlyVisibleState = <ProjectDetail project = {this.state.selectedProj} resetSelectedProj = {this.handleClick}/>
     } 
+    else if (this.state.selectedJourn != null){
+      currentlyVisibleState = <JournalDetail journal = {this.state.selectedJourn} resetSelectedJourn = {this.handleClick}/>
+    }
 
     else {
       currentlyVisibleState = <Home 
       projList={this.state.projList} 
       onProjSelection={this.handleChangingSelectedProj} 
-    
+      journList={this.state.journList}
+      onJournSelection={this.handleChangingSelectedJourn}
       />;
     }
     return (

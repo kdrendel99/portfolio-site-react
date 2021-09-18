@@ -45,7 +45,7 @@ function Project(props){
 
     <React.Fragment>
           <div className={`col-lg-4 col-md-6 portfolio-item filter-${props.type}`}>
-            <img src={img} className="img-fluid" alt=""/>
+            <img src={img} className="img-fluid" alt={`${props.imgDes}`}/>
             <div className="portfolio-info">
               <h4>{props.name}</h4>
               <p>{props.description}</p>

@@ -2,12 +2,9 @@ import React from "react";
 import { connect } from 'react-redux';
 import * as c from './../actions/ActionTypes';
 
-// import { Link } from 'react-router-dom';
-// import 'bootstrap';
-// import './../../node_modules/bootstrap/dist/css/bootstrap.min.css';
-// import './../../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js';
-
 function Header(props){
+  const [dropdown, setDropdown] = React.useState(false);
+  const toggleOpen = () => setDropdown(!dropdown);
 
   const resetSelected = () => {
     clearProj();
@@ -30,22 +27,27 @@ function Header(props){
     dispatch(action);
   }
 
+  // const dropDownStyle = {
+  //     color: "green",
+  // }
+
   return (
     <React.Fragment>
       <header id="header" className="fixed-top ">
         <div className="container d-flex align-items-center justify-content-between">
 
           <h1 className="logo"><a href="index.html">Karlson Drendel</a></h1>
-          <button onClick = {() => resetSelected()}>Click Me</button>
           <nav id="navbar" className="navbar">
             <ul>
-                <li><a className="nav-link scrollto active" href="#hero">Home</a></li>
-                <li><a className="nav-link scrollto" href="#about">About</a></li>
-                <li><a className="nav-link  scrollto" href="#portfolio">Portfolio</a></li>
-                <li><a className="nav-link  scrollto" href="#journal">Blog</a></li>
-                <li><a className="nav-link scrollto" href="#contact">Contact</a></li>
+                <li><a onClick = {() => resetSelected()} className="nav-link scrollto active" href="#hero">Home</a></li>
+                <li><a onClick = {() => resetSelected()} className="nav-link scrollto" href="#about">About</a></li>
+                <li><a onClick = {() => resetSelected()} className="nav-link  scrollto" href="#portfolio">Portfolio</a></li>
+                <li><a onClick = {() => resetSelected()} className="nav-link  scrollto" href="#journal">Blog</a></li>
+                <li><a onClick = {() => resetSelected()} className="nav-link scrollto" href="#contact">Contact</a></li>
             </ul>
-            <i className="bi bi-list mobile-nav-toggle"></i>
+            <i className="bi bi-list mobile-nav-toggle" 
+            // style={dropDownStyle}
+            onClick = {() => toggleOpen()}></i>
           </nav>
         </div>
       </header>

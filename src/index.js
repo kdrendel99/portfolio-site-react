@@ -5,6 +5,14 @@ import App from './components/App';
 import Header from './components/Header';
 // import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 // import '../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js';
+import 'bootstrap';
+import 'bootstrap/dist/css/bootstrap.css';
+import 'bootstrap/dist/js/bootstrap.js';
+import 'jquery';
+import 'popper.js';
+
+
+
 import '../node_modules/swiper/swiper-bundle.min.js';
 //swiper buttons:
 import '../node_modules/swiper/swiper-bundle.min.css';

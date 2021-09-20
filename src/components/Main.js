@@ -1,12 +1,15 @@
+import { connect } from 'react-redux';
 import React from 'react';
 import Home from './Home';
+import Header from './Header';
 import ProjectDetail from './ProjectDetail';
 import JournalDetail from './JournalDetail';
 import AllProjects from './AllProjects';
 import AllJournals from './AllJournals';
+import * as c from './../actions/ActionTypes';
+import PropTypes from "prop-types";
 // import runAnimations from './../helper';
 // import 'swiper';
-
 
 class Main extends React.Component {
   constructor(props) {
@@ -15,18 +18,36 @@ class Main extends React.Component {
       projList: AllProjects,
       selectedProj: null,
       journList: AllJournals,
-      selectedJourn: null
+      // selectedJourn: null
     };
   }
 
   handleClick = () => {
-    if (this.state.selectedProj != null) {
+    const { dispatch } = this.props;
+    const action = {
+      type: c.REMOVE_SELECTED_JOURNAL
+    }
       this.setState({
         selectedProj: null,
-        selectedJourn: null
       });
-    } 
+    dispatch(action);
   }
+
+  handleChangingSelectedJourn = (id) => {
+    const { dispatch } = this.props;
+    const selectedJournal = this.state.journList.filter(journ => journ.id === id)[0];
+    const action = {
+      type: c.ADD_SELECTED_JOURNAL,
+      id: selectedJournal
+    }
+    dispatch(action);
+  }
+
+  // handleChangingSelectedJourn = (id) => {
+  //   const selectedJourn = this.state.journList.filter(journ => journ.id === id)[0];
+  //   console.log(selectedJourn.name);
+  //   this.setState({selectedJourn: selectedJourn});
+  // }
 
   handleChangingSelectedProj = (id) => {
     const selectedProj = this.state.projList.filter(proj => proj.id === id)[0];
@@ -34,20 +55,16 @@ class Main extends React.Component {
     this.setState({selectedProj: selectedProj});
   }
 
-  handleChangingSelectedJourn = (id) => {
-    const selectedJourn = this.state.journList.filter(journ => journ.id === id)[0];
-    console.log(selectedJourn.name);
-    this.setState({selectedJourn: selectedJourn});
-  }
-
   render(){
     let currentlyVisibleState = null;
 
     if (this.state.selectedProj != null) {
-      currentlyVisibleState = <ProjectDetail project = {this.state.selectedProj} resetSelectedProj = {this.handleClick}/>
+      currentlyVisibleState = <ProjectDetail project = {this.state.selectedProj} resetSelectedProj = {this.handleClick}/>;
+      // <Header clearSelected = {this.handleClick}/>
     } 
-    else if (this.state.selectedJourn != null){
-      currentlyVisibleState = <JournalDetail journal = {this.state.selectedJourn} resetSelectedJourn = {this.handleClick}/>
+    else if (this.props.selectedJourn != null){
+      currentlyVisibleState = <JournalDetail journal = {this.props.selectedJourn} resetSelectedJourn = {this.handleClick}/>;
+      // <Header clearSelected = {this.handleClick}/>
     }
 
     else {
@@ -56,6 +73,7 @@ class Main extends React.Component {
       onProjSelection={this.handleChangingSelectedProj} 
       journList={this.state.journList}
       onJournSelection={this.handleChangingSelectedJourn}
+      resetSelections={this.handleClick}
       />;
     }
     return (
@@ -67,4 +85,17 @@ class Main extends React.Component {
 
 }
 
+// Main.propTypes = {
+//   selectedJourn: PropTypes.number?
+// };
+
+const mapStateToProps = state => {
+  return {
+    selectedJourn: state.selectedJourn
+  }
+}
+
+Main = connect(mapStateToProps)(Main);
+
 export default Main;
+

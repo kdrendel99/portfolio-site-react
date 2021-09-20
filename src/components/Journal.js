@@ -33,14 +33,14 @@ function Journal(props){
   return (
 
     <React.Fragment>
-      <div class="col-lg-4 col-md-6">
-        <div class="journal-info">
+      <div className="col-lg-4 col-md-6">
+        <div className="journal-info">
           {/* <a href={img}> */}
-            <img src={img} class="img-responsive" alt={`${props.imgDes}`} onClick = {() => props.whenJournClicked(props.id)} style={{cursor: "pointer"}}/>
+            <img src={img} className="img-responsive" alt={`${props.imgDes}`} onClick = {() => props.whenJournClicked(props.id)} style={{cursor: "pointer"}}/>
           {/* </a> */}
-          <div class="journal-txt">
+          <div className="journal-txt">
             <h4><a onClick = {() => props.whenJournClicked(props.id)}>{props.name}</a></h4>
-            <p class="separator">{props.shortDes}</p>
+            <p className="separator">{props.shortDes}</p>
           </div>
         </div>
       </div>

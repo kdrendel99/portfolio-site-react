@@ -24,7 +24,10 @@ function Home(props){
     }
   })
 
-
+  useEffect( () => {
+    console.log("reset")
+    props.resetSelections();
+  }, []);
 
   return (
     <React.Fragment>

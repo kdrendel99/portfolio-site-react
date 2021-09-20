@@ -130,8 +130,8 @@ function JournalDetail(props){
             </div>
           </div>
         </div>
-
       </main>
+      <button onClick={() => props.resetSelectedJourn()}>RESET</button>
     </React.Fragment>
   );
 }

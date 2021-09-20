@@ -1,7 +1,8 @@
 import * as c from './../actions/ActionTypes';
 
 const initialState = {
-  selectedJourn: null
+  selectedJourn: null,
+  selectedProj: null
 }
 
 export default (state = initialState, action) => {
@@ -15,6 +16,16 @@ export default (state = initialState, action) => {
       return Object.assign({}, state, {
         selectedJourn: null
       })
+      case c.ADD_SELECTED_PROJECT:
+        return Object.assign({}, state, {
+          selectedProj: id
+        });
+      case c.REMOVE_SELECTED_PROJECT:
+        return Object.assign({}, state, {
+          selectedProj: null
+        });
+      // default:
+      //   return state;
   }
   return state;
 };

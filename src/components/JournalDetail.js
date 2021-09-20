@@ -137,7 +137,7 @@ function JournalDetail(props){
 }
 
 JournalDetail.propTypes = {
-  journal: PropTypes.object,
+  journal: PropTypes.object.isRequired,
   resetSelectedJourn: PropTypes.func
 };
 

@@ -1,30 +1,30 @@
 import React from "react";
-// import { connect } from 'react-redux';
-// import * as c from './../actions/ActionTypes';
+import { connect } from 'react-redux';
+import * as c from './../actions/ActionTypes';
 
 // import { Link } from 'react-router-dom';
 // import 'bootstrap';
 // import './../../node_modules/bootstrap/dist/css/bootstrap.min.css';
 // import './../../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js';
 
-function Header(){
-  // const resetJourn = () => {
-  //   const { dispatch } = this.props;
-  //   const action = {
-  //     type: c.REMOVE_SELECTED_JOURNAL
-  //   }
-  //     // this.setState({
-  //     //   selectedProj: null,
-  //     // });
-  //   dispatch(action);
-  // }
+function Header(props){
+  const resetJourn = () => {
+    const { dispatch } = props;
+    const action = {
+      type: c.REMOVE_SELECTED_JOURNAL
+    }
+      // this.setState({
+      //   selectedProj: null,
+      // });
+    dispatch(action);
+  }
   return (
     <React.Fragment>
       <header id="header" className="fixed-top ">
         <div className="container d-flex align-items-center justify-content-between">
 
           <h1 className="logo"><a href="index.html">Karlson Drendel</a></h1>
-          {/* <button onClick = {() => resetJourn()}>Click Me</button> */}
+          <button onClick = {() => resetJourn()}>Click Me</button>
           <nav id="navbar" className="navbar">
             <ul>
                 <li><a className="nav-link scrollto active" href="#hero">Home</a></li>
@@ -41,12 +41,12 @@ function Header(){
   );
 }
 
-// const mapStateToProps = state => {
-//   return {
-//     selectedJourn: state
-//   }
-// }
+const mapStateToProps = state => {
+  return {
+    selectedJourn: state.selectedJourn
+  }
+}
 
-// Header = connect(mapStateToProps)(Header);
+Header = connect(mapStateToProps)(Header);
 
 export default Header;

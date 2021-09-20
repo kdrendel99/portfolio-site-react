@@ -8,23 +8,35 @@ import * as c from './../actions/ActionTypes';
 // import './../../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js';
 
 function Header(props){
-  const resetJourn = () => {
+
+  const resetSelected = () => {
+    clearProj();
+    clearJourn();
+  }
+
+  const clearProj = () => {
+    const { dispatch } = props;
+    const action = {
+      type: c.REMOVE_SELECTED_PROJECT
+    }
+    dispatch(action);
+  }
+
+  const clearJourn = () => {
     const { dispatch } = props;
     const action = {
       type: c.REMOVE_SELECTED_JOURNAL
     }
-      // this.setState({
-      //   selectedProj: null,
-      // });
     dispatch(action);
   }
+
   return (
     <React.Fragment>
       <header id="header" className="fixed-top ">
         <div className="container d-flex align-items-center justify-content-between">
 
           <h1 className="logo"><a href="index.html">Karlson Drendel</a></h1>
-          <button onClick = {() => resetJourn()}>Click Me</button>
+          <button onClick = {() => resetSelected()}>Click Me</button>
           <nav id="navbar" className="navbar">
             <ul>
                 <li><a className="nav-link scrollto active" href="#hero">Home</a></li>

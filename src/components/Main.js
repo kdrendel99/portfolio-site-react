@@ -16,21 +16,38 @@ class Main extends React.Component {
     super(props);
     this.state = {
       projList: AllProjects,
-      selectedProj: null,
+      // selectedProj: null,
       journList: AllJournals,
       // selectedJourn: null
     };
   }
 
-  handleClick = () => {
+  componentDidMount(){
+    console.log('curr sel journ: ');
+    console.log(this.props.selectedJourn);
+    console.log('curr sel proj: ');
+    console.log(this.props.selectedProj);
+  }
+
+  clearProj = () => {
+    const { dispatch } = this.props;
+    const action = {
+      type: c.REMOVE_SELECTED_PROJECT
+    }
+    dispatch(action);
+  }
+
+  clearJourn = () => {
     const { dispatch } = this.props;
     const action = {
       type: c.REMOVE_SELECTED_JOURNAL
     }
-      this.setState({
-        selectedProj: null,
-      });
     dispatch(action);
+  }
+
+  handleClick = () => {
+    this.clearProj();
+    this.clearJourn();
   }
 
   handleChangingSelectedJourn = (id) => {
@@ -43,28 +60,25 @@ class Main extends React.Component {
     dispatch(action);
   }
 
-  // handleChangingSelectedJourn = (id) => {
-  //   const selectedJourn = this.state.journList.filter(journ => journ.id === id)[0];
-  //   console.log(selectedJourn.name);
-  //   this.setState({selectedJourn: selectedJourn});
-  // }
-
   handleChangingSelectedProj = (id) => {
-    const selectedProj = this.state.projList.filter(proj => proj.id === id)[0];
-    console.log(selectedProj.name);
-    this.setState({selectedProj: selectedProj});
+    const { dispatch } = this.props;
+    const selectedProject = this.state.projList.filter(proj => proj.id === id)[0];
+    const action = {
+      type: c.ADD_SELECTED_PROJECT,
+      id: selectedProject
+    }
+    dispatch(action);
   }
 
   render(){
+
     let currentlyVisibleState = null;
 
-    if (this.state.selectedProj != null) {
-      currentlyVisibleState = <ProjectDetail project = {this.state.selectedProj} resetSelectedProj = {this.handleClick}/>;
-      // <Header clearSelected = {this.handleClick}/>
+    if (this.props.selectedProj != null) {
+      currentlyVisibleState = <ProjectDetail project = {this.props.selectedProj} resetSelectedProj = {this.handleClick}/>;
     } 
     else if (this.props.selectedJourn != null){
       currentlyVisibleState = <JournalDetail journal = {this.props.selectedJourn} resetSelectedJourn = {this.handleClick}/>;
-      // <Header clearSelected = {this.handleClick}/>
     }
 
     else {
@@ -86,14 +100,25 @@ class Main extends React.Component {
 }
 
 // Main.propTypes = {
-//   selectedJourn: PropTypes.number?
+//   selectedJourn: PropTypes.object,
+//   selectedProj: PropTypes.object
 // };
+
+// const mapStateToProps = state => {
+//   return {
+//     selectedJourn: state.selectedJourn.selectedJourn,
+//     selectedProj: state.selectedProj.selectedProj
+//   }
+// }
+
 
 const mapStateToProps = state => {
   return {
-    selectedJourn: state.selectedJourn
+    selectedJourn: state.selectedJourn,
+    selectedProj: state.selectedProj
   }
 }
+
 
 Main = connect(mapStateToProps)(Main);
 

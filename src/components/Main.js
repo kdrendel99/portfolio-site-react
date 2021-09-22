@@ -74,10 +74,10 @@ class Main extends React.Component {
     let currentlyVisibleState = null;
 
     if (this.props.selectedProj != null) {
-      currentlyVisibleState = <ProjectDetail project = {this.props.selectedProj} resetSelectedProj = {this.handleClick}/>;
+      currentlyVisibleState = <ProjectDetail project = {this.props.selectedProj} resetSelected = {this.handleClick}/>;
     } 
     else if (this.props.selectedJourn != null){
-      currentlyVisibleState = <JournalDetail journal = {this.props.selectedJourn} resetSelectedJourn = {this.handleClick}/>;
+      currentlyVisibleState = <JournalDetail journal = {this.props.selectedJourn} resetSelected = {this.handleClick}/>;
     }
 
     else {

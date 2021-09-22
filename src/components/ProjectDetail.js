@@ -42,6 +42,10 @@ function ProjectDetail(props) {
   useEffect(() => {
     renderImage();
   })
+
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
   return(
     <React.Fragment>
       <main id="main">

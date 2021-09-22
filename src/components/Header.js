@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import React, { useEffect } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import * as c from './../actions/ActionTypes';
 import PropTypes from "prop-types";
 import navAnimations from '../navbar/navbar';
@@ -8,6 +8,7 @@ import './../navbar/navbar.css';
 function Header(props){
   const [dropdown, setDropdown] = React.useState(false);
   const [navbarAnimations, setAnimations] = React.useState(true);
+  
 
   useEffect(() => {
     if(navbarAnimations){
@@ -19,13 +20,6 @@ function Header(props){
       setAnimations(false);
     }
   })
-
-  // useEffect( () => {
-
-  // }, []);
-
-  useEffect(() => console.log(dropdown));
-  // let dropdownVisible = useEffect(() => dropdown);
 
   const resetSelected = () => {
     clearProj();
@@ -52,10 +46,8 @@ function Header(props){
   const elSelector = (el, all = false) => {
     el = el.trim();
     if (all) {
-      console.log(el + ' = select all true');
       return [...document.querySelectorAll(el)];
   } else {
-      console.log(el + ' = select all false');
       return document.querySelector(el);
     }
   }
@@ -65,10 +57,8 @@ function Header(props){
     if (selectEl) {
       if (all) {
         selectEl.forEach(e => e.addEventListener(type, listener));
-        console.log(el + ' = on all true');
       } else {
         selectEl.addEventListener(type, listener);
-        console.log(el + ' = on all false');
       }
     }
   }
@@ -132,18 +122,16 @@ function Header(props){
       }
       }, true);
     }  
-  }
-
-
+  } 
   
   return (
+    {dropdown},
     <React.Fragment>
       <header id="header" className="fixed-top ">
         <div className="container d-flex align-items-center justify-content-between">
 
           <h1 className="logo"><a href="index.html">Karlson Drendel</a></h1>
           <nav id="navbar" className="navbar">
-            {/* <button onClick = {() => resetSelected()}>Click Me</button>  */}
             <ul>
                 <li><a onClick = {() => resetSelected()} className="nav-link scrollto active" href="#hero">Home</a></li>
                 <li><a onClick = {() => resetSelected()} className="nav-link scrollto" href="#about">About</a></li>
@@ -152,7 +140,7 @@ function Header(props){
                 <li><a onClick = {() => resetSelected()} className="nav-link scrollto" href="#contact">Contact</a></li>
             </ul>
             <i className="bi bi-list mobile-nav-toggle" onClick = {() => toggleDropdown()}></i>
-            {/* <Dropdown /> */}
+            <i className="bi bi-x mobile-nav-toggle" onClick = {() => toggleDropdown()}></i>
           </nav>
         </div> 
       </header>  

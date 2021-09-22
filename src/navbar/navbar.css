@@ -1,3 +1,48 @@
+
+
+
+/*--------------------------------------------------------------
+# Header
+--------------------------------------------------------------*/
+#header {
+  transition: all 0.5s;
+  z-index: 997;
+  padding: 15px 0;
+  background-color: #fff;
+  top: -100%;
+  box-shadow: 0px 2px 25px rgba(0, 0, 0, 0.08);
+}
+
+#header.header-scrolled, #header.header-inner-pages {
+  top: 0;
+}
+
+#header .logo {
+  font-size: 30px;
+  margin: 0;
+  padding: 0;
+  line-height: 1;
+  font-weight: 600;
+  letter-spacing: 1px;
+  font-family: "Playfair Display", sans-serif;
+  font-style: italic;
+}
+
+#header .logo a {
+  color: #898989;
+}
+
+#header .logo img {
+  max-height: 40px;
+}
+
+@media (max-width: 992px) {
+  #header {
+    border: 0;
+  }
+}
+
+
 /*--------------------------------------------------------------
 # Navigation Menu
 --------------------------------------------------------------*/
@@ -111,7 +156,6 @@
 /**
 * Mobile Navigation 
 */
-
 .mobile-nav-toggle {
   color: #4b4a4a;
   font-size: 28px;
@@ -120,7 +164,6 @@
   line-height: 0;
   transition: 0.5s;
 }
-
 .mobile-nav-toggle.bi-x {
   color: #fff;
 }
@@ -129,11 +172,11 @@
   .mobile-nav-toggle {
     display: block;
   }
+
   .navbar ul {
     display: none;
   }
 }
-
 .navbar-mobile {
   position: fixed;
   overflow: hidden;
@@ -144,13 +187,11 @@
   background: rgba(49, 49, 49, 0.9);
   transition: 0.3s;
 }
-
 .navbar-mobile .mobile-nav-toggle {
   position: absolute;
   top: 15px;
   right: 15px;
-} 
-
+}
 .navbar-mobile ul {
   display: block;
   position: absolute;
@@ -164,23 +205,17 @@
   overflow-y: auto;
   transition: 0.3s;
 }
-
-.navbar-mobile a {
+.navbar-mobile a, .navbar-mobile a:focus {
   padding: 10px 20px;
   font-size: 15px;
   color: #4b4a4a;
 }
-
 .navbar-mobile a:hover, .navbar-mobile .active, .navbar-mobile li:hover > a {
   color: #b8a07e;
 }
-
-.navbar-mobile .getstarted {
+.navbar-mobile .getstarted, .navbar-mobile .getstarted:focus {
   margin: 15px;
 }
-
-
-
 .navbar-mobile .dropdown ul {
   position: static;
   display: none;
@@ -192,24 +227,18 @@
   background: #fff;
   box-shadow: 0px 0px 30px rgba(127, 137, 161, 0.25);
 }
-
-
 .navbar-mobile .dropdown ul li {
   min-width: 200px;
 }
-
 .navbar-mobile .dropdown ul a {
   padding: 10px 20px;
 }
-
 .navbar-mobile .dropdown ul a i {
   font-size: 12px;
 }
-
 .navbar-mobile .dropdown ul a:hover, .navbar-mobile .dropdown ul .active:hover, .navbar-mobile .dropdown ul li:hover > a {
   color: #b8a07e;
 }
-
 .navbar-mobile .dropdown > .dropdown-active {
   display: block;
 }

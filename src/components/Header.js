@@ -1,17 +1,35 @@
-import React, { useEffect, useState } from "react";
-// import Dropdown from './Dropdown';
+import React, { useEffect } from "react";
 import { connect } from 'react-redux';
 import * as c from './../actions/ActionTypes';
-import 'bootstrap';
-import 'react-bootstrap';
-import './../index.css';
+import navAnimations from './../navbar';
+import './../navbar.css';
+
+  // const dropDownStyle = {
+  //     color: "green",
+  // }
 
 
 function Header(props){
   const [dropdown, setDropdown] = React.useState(false);
+  const [navbarAnimations, setAnimations] = React.useState(true);
+
+  useEffect(() => {
+    if(navbarAnimations){
+      if (navbarAnimations){
+        navAnimations();
+      }
+    }
+    return () => {
+      setAnimations(false);
+    }
+  })
+
+  // useEffect( () => {
+
+  // }, []);
 
   useEffect(() => console.log(dropdown));
-  let dropdownVisible = useEffect(() => dropdown);
+  // let dropdownVisible = useEffect(() => dropdown);
 
   const resetSelected = () => {
     clearProj();
@@ -34,9 +52,6 @@ function Header(props){
     dispatch(action);
   }
 
-  // const dropDownStyle = {
-  //     color: "green",
-  // }
 
   const elSelector = (el, all = false) => {
     el = el.trim();

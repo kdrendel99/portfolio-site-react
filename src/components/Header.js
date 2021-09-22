@@ -2,13 +2,8 @@ import { connect } from 'react-redux';
 import React, { useEffect } from "react";
 import * as c from './../actions/ActionTypes';
 import PropTypes from "prop-types";
-import navAnimations from './../navbar';
-import './../navbar.css';
-
-  // const dropDownStyle = {
-  //     color: "green",
-  // }
-
+import navAnimations from '../navbar/navbar';
+import './../navbar/navbar.css';
 
 function Header(props){
   const [dropdown, setDropdown] = React.useState(false);

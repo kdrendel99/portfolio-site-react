@@ -1,8 +1,4 @@
-import './../node_modules/bootstrap/dist/css/bootstrap.min.css';
-import Swiper from 'swiper/swiper-bundle.min';
-import Typed from "typed.js";
-import Isotope from 'isotope-layout';
-import GLightbox from 'glightbox';
+import '../../node_modules/bootstrap/dist/css/bootstrap.min.css';
 
 const navAnimations = function() {
 

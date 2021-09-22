@@ -7,26 +7,17 @@ import AllProjects from './AllProjects';
 import AllJournals from './AllJournals';
 import * as c from './../actions/ActionTypes';
 import PropTypes from "prop-types";
-// import runAnimations from './../helper';
-// import 'swiper';
+
 
 class Main extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       projList: AllProjects,
-      // selectedProj: null,
       journList: AllJournals,
-      // selectedJourn: null
     };
   }
 
-  componentDidMount(){
-    console.log('curr sel journ: ');
-    console.log(this.props.selectedJourn);
-    console.log('curr sel proj: ');
-    console.log(this.props.selectedProj);
-  }
 
   clearProj = () => {
     const { dispatch } = this.props;

@@ -1,6 +1,7 @@
-import React, { useEffect } from "react";
 import { connect } from 'react-redux';
+import React, { useEffect } from "react";
 import * as c from './../actions/ActionTypes';
+import PropTypes from "prop-types";
 import navAnimations from './../navbar';
 import './../navbar.css';
 
@@ -147,12 +148,13 @@ function Header(props){
 
           <h1 className="logo"><a href="index.html">Karlson Drendel</a></h1>
           <nav id="navbar" className="navbar">
+            {/* <button onClick = {() => resetSelected()}>Click Me</button>  */}
             <ul>
-                <li><a className="nav-link scrollto active" href="#hero">Home</a></li>
-                <li><a className="nav-link scrollto" href="#about">About</a></li>
-                <li><a className="nav-link scrollto" href="#portfolio">Portfolio</a></li>
-                <li><a className="nav-link scrollto" href="#journal">Blog</a></li>
-                <li><a className="nav-link scrollto" href="#contact">Contact</a></li>
+                <li><a onClick = {() => resetSelected()} className="nav-link scrollto active" href="#hero">Home</a></li>
+                <li><a onClick = {() => resetSelected()} className="nav-link scrollto" href="#about">About</a></li>
+                <li><a onClick = {() => resetSelected()} className="nav-link scrollto" href="#portfolio">Portfolio</a></li>
+                <li><a onClick = {() => resetSelected()} className="nav-link scrollto" href="#journal">Blog</a></li>
+                <li><a onClick = {() => resetSelected()} className="nav-link scrollto" href="#contact">Contact</a></li>
             </ul>
             <i className="bi bi-list mobile-nav-toggle" onClick = {() => toggleDropdown()}></i>
             {/* <Dropdown /> */}
@@ -165,7 +167,8 @@ function Header(props){
 
 const mapStateToProps = state => {
   return {
-    selectedJourn: state.selectedJourn
+    selectedJourn: state.selectedJourn,
+    selectedProj: state.selectedProj
   }
 }
 

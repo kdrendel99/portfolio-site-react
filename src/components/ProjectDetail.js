@@ -10,7 +10,7 @@ import exchange from './../img/portfolio/exchange.jpg';
 
 function ProjectDetail(props) {
   const [img, setImg] = React.useState(null);
-  const { project, resetSelectedProj } = props;
+  const { project, resetSelected } = props;
 
   function renderImage(){
     let incomingImg = project.image;
@@ -51,7 +51,7 @@ function ProjectDetail(props) {
           <div className="d-flex justify-content-between align-items-center">
             <h2>{project.name} Project Details</h2>
             <ol>
-              <li><a onClick = {() => resetSelectedProj()}>Home</a></li>
+              <li><a onClick = {() => resetSelected()}>Home</a></li>
               <li><a href="../index.html#portfolio">Portfolio</a></li>
               <li>Portfolio Details</li>
             </ol>
@@ -110,7 +110,7 @@ function ProjectDetail(props) {
 
 ProjectDetail.propTypes = {
   project: PropTypes.object,
-  resetSelectedProj: PropTypes.func
+  resetSelected: PropTypes.func
 }
 
 export default ProjectDetail;

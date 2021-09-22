@@ -8,7 +8,7 @@ import './../../node_modules/swiper/swiper-bundle.min.js';
 
 function JournalDetail(props){
     const [img, setImg] = React.useState(null);
-    const { journal, resetSelectedJourn } = props;
+    const { journal, resetSelected } = props;
 
     function renderImage(){
       let incomingImg = journal.image;
@@ -42,7 +42,7 @@ function JournalDetail(props){
           <div className="d-flex justify-content-between align-items-center">
             <h2>{journal.name} Project Details</h2>
             <ol>
-              <li><a onClick = {() => resetSelectedJourn()}>Home</a></li>
+              <li><a onClick = {() => resetSelected()}>Home</a></li>
               <li><a href="../index.html#journal">Journal</a></li>
               <li>Journal Details</li>
             </ol>
@@ -131,14 +131,13 @@ function JournalDetail(props){
           </div>
         </div>
       </main>
-      <button onClick={() => props.resetSelectedJourn()}>RESET</button>
     </React.Fragment>
   );
 }
 
 JournalDetail.propTypes = {
   journal: PropTypes.object.isRequired,
-  resetSelectedJourn: PropTypes.func
+  resetSelected: PropTypes.func
 };
 
 export default JournalDetail;

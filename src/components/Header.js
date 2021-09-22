@@ -8,40 +8,30 @@ import './../navbar/navbar.css';
 function Header(props){
   const [dropdown, setDropdown] = React.useState(false);
   const [navbarAnimations, setAnimations] = React.useState(true);
-  // const [iconColor, setColor] = React.useState('#4b4a4a');
-  // const [icon, setIcon] = React.useState("bi bi-list mobile-nav-toggle");
 
-  useEffect(() => {
-    if(navbarAnimations){
-      if (navbarAnimations){
-        navAnimations();
-        // let selectEl = document.querySelector('.mobile-nav-toggle');
-        // selectEl.addEventListener('click', function(e) {
-        //   elSelector('#navbar').classList.toggle('navbar-mobile')
-        //   this.classList.toggle('bi-list')
-        //   this.classList.toggle('bi-x')
-        // });
-      }
-    }
-    return () => {
-      setAnimations(false);
-      let selectEl = document.querySelector('.mobile-nav-toggle');
-      selectEl.addEventListener('click', function(e) {
-        elSelector('#navbar').classList.toggle('navbar-mobile')
-        this.classList.toggle('bi-list')
-        this.classList.toggle('bi-x')
-      });
-      
-    }
-  })
-
-  useEffect(() => {
+  function addEventListenerToClick(){
     let selectEl = document.querySelector('.mobile-nav-toggle');
     selectEl.addEventListener('click', function(e) {
       elSelector('#navbar').classList.toggle('navbar-mobile')
       this.classList.toggle('bi-list')
       this.classList.toggle('bi-x')
     });
+  }
+
+  useEffect(() => {
+    if(navbarAnimations){
+      if (navbarAnimations){
+        navAnimations();
+      }
+    }
+    return () => {
+      setAnimations(false);
+      addEventListenerToClick();
+    }
+  })
+
+  useEffect(() => {
+    addEventListenerToClick();
   })
 
   const resetSelected = () => {
@@ -106,33 +96,6 @@ function Header(props){
     setDropdown(!dropdown);
 
     if ({dropdown}){
-      // setColor('#fff');
-      // setIcon("bi bi-x mobile-nav-toggle");
-      // Mobile nav toggle 
-    
-      // elSelector('#navbar').classList.toggle('navbar-mobile');
-      // elSelector('#navbar').classList.toggle('bi-list');
-      // elSelector('#navbar').classList.toggle('bi-x');
-//========================================================================
-      // let selectEl = document.querySelector('.mobile-nav-toggle');
-      // selectEl.addEventListener('click', function(e) {
-      //   elSelector('#navbar').classList.toggle('navbar-mobile')
-      //   this.classList.toggle('bi-list')
-      //   this.classList.toggle('bi-x')
-      // });
-//========================================================================
-
-      // '.mobile-nav-toggle'.addEventListener('click', function(e) {
-      //   elSelector('#navbar').classList.toggle('navbar-mobile')
-      //   this.classList.toggle('bi-list')
-      //   this.classList.toggle('bi-x')
-      // });
-
-      // addEvListen('click', '.mobile-nav-toggle', function(e) {
-      //   elSelector('#navbar').classList.toggle('navbar-mobile')
-      //   this.classList.toggle('bi-list')
-      //   this.classList.toggle('bi-x')
-      // })
     
       // Mobile nav dropdowns activate 
 
@@ -166,10 +129,6 @@ function Header(props){
       }
       }, true);
     }  
-    else {
-      // setColor('#4b4a4a');
-      // setIcon("bi bi-list mobile-nav-toggle");
-    }
   } 
   
   return (
@@ -188,8 +147,6 @@ function Header(props){
                 <li><a onClick = {() => resetSelected()} className="nav-link scrollto" href="#contact">Contact</a></li>
             </ul>
             <i className="bi bi-list mobile-nav-toggle" onClick = {() => toggleDropdown()}></i>
-            {/* <i className="bi bi-x mobile-nav-toggle" onClick = {() => toggleDropdown()}></i> */}
-            {/* <i className={icon} style={{iconColor}} onClick = {() => toggleDropdown()}></i> */}
           </nav>
         </div> 
       </header>  

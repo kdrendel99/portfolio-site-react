@@ -2,15 +2,9 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './components/App';
-import Header from './components/Header';
 // import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 // import '../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js';
-import 'bootstrap';
-import 'bootstrap/dist/css/bootstrap.css';
-import 'bootstrap/dist/js/bootstrap.js';
-import 'jquery';
-import 'popper.js';
-
+// import './helper';
 
 
 import '../node_modules/swiper/swiper-bundle.min.js';
@@ -35,7 +29,6 @@ store.subscribe(() =>
 
 ReactDOM.render(
   <Provider store={store}>
-    <Header />
     <App />
   </Provider>,
   document.getElementById('root')

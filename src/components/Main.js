@@ -1,7 +1,6 @@
 import { connect } from 'react-redux';
 import React from 'react';
 import Home from './Home';
-import Header from './Header';
 import ProjectDetail from './ProjectDetail';
 import JournalDetail from './JournalDetail';
 import AllProjects from './AllProjects';

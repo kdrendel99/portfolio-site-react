@@ -6,6 +6,7 @@ import '../node_modules/swiper/swiper-bundle.min.js';
 //swiper buttons:
 import '../node_modules/swiper/swiper-bundle.min.css';
 import '../node_modules/swiper/swiper.min.css';
+
 import "../node_modules/bootstrap-icons/font/bootstrap-icons.css";
 import '../node_modules/glightbox/dist/css/glightbox.min.css';
 import '../node_modules/boxicons/css/boxicons.css';

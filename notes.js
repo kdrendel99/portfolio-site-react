@@ -1,231 +1,87 @@
-<body>
+const elSelector = (el, all = false) => {
+  el = el.trim();
+  if (all) {
+    console.log(el + ' = select all true');
+    return [...document.querySelectorAll(el)];
+} else {
+    console.log(el + ' = select all false');
+    return document.querySelector(el);
+  }
+}
 
-{/* ======= Hero Section ======= */}
-<div id="hero" class="home">
+const addEvListen = (type, el, listener, all = false) => {
+  let selectEl = elSelector(el, all);
+  if (selectEl) {
+    if (all) {
+      selectEl.forEach(e => e.addEventListener(type, listener));
+      console.log(el + ' = on all true');
+    } else {
+      selectEl.addEventListener(type, listener);
+      console.log(el + ' = on all false');
+    }
+  }
+}
 
-  <div class="container">
-    <div class="hero-content">
-      <h1>I am <span class="typed" data-typed-items="Karlson Drendel, a software engineer, a Full-Stack Developer, a Creative Thinker"></span></h1>
-      <p>Software Engineer, Full-Stack Developer, creative thinker</p>
+const scrollto = (el) => {
+  let header = elSelector('#header');
+  let offset = header.offsetHeight;
 
-      <ul class="list-unstyled list-social">
-        {/* <li><a href="#"><i class="bi bi-facebook"></i></a></li>*/}
-        <li><a href="https://github.com/kdrendel99"><i class="fab fa-github-square"></i></a></li>
-        {/*  <li><a href="#"><i class="bi bi-twitter"></i></a></li>
-         <li><a href="#"><i class="bi bi-instagram"></i></a></li> */}
-        <li><a href="https://www.linkedin.com/in/karlson-drendel/"><i class="bi bi-linkedin"></i></a></li>
-      </ul>
-    </div>
-  </div>
-</div>
-{/* End Hero */}
+  if (!header.classList.contains('header-scrolled')) {
+    offset -= 16;
+  }
 
-<main id="main">
+  let elementPos = elSelector(el).offsetTop;
+  window.scrollTo({
+    top: elementPos - offset,
+    behavior: 'smooth'
+  })
+}
 
-  {/* ======= About Section ======= */}
-  <div id="about" class="paddsection">
-    <div class="container">
-      <div class="row justify-content-between">
 
-        <div class="col-lg-4 ">
-          <div class="div-img-bg">
-            <div class="about-img">
-              <img src="{Me}" class="img-responsive" alt="me"/>
-            </div>
-          </div>
-        </div>
+const toggleDropdown = () => {
+  setDropdown(!dropdown);
 
-        <div class="col-lg-7">
-          <div class="about-descr">
-
-            <p class="p-heading">About Me </p>
-            <p class="separator">My name is Karlson Drendel, and I'm a passionate Software Engineer/Full-Stack Developer seeking to kickstart my career as a programmer by gaining industry experience. I'm a recent coding bootcamp graduate looking to learn and grow my skillset in a dynamic work environment. I possess thousands of hours of hands-on, full time experience building and testing web apps, databases, and general full-stack development. I'm a motivated learner, and am always excited to learn new technologies. I also enjoy puzzles, creative thinking, photography, writing music, and bouldering.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  {/* End About Section
+  if ({dropdown}){
+    // Mobile nav toggle 
   
-  ======= Services Section ======= */}
-  <div id="services">
-    <div class="container">
+    elSelector('#navbar').classList.toggle('navbar-mobile');
+    elSelector('#navbar').classList.toggle('bi-list');
+    elSelector('#navbar').classList.toggle('bi-x');
+  
+  
+    // Mobile nav dropdowns activate 
 
-      <div class="services-slider swiper-container" data-aos="fade-up" data-aos-delay="100">
-        <div class="swiper-wrapper">
-
-          <div class="swiper-slide">
-            <div class="services-block">
-              <i class="fab fa-react"></i>
-              <span>React.js</span>
-              <p class="separator">Lorem ipsum React details here</p>
-            </div>
-          </div>
-
-          <div class="swiper-slide">
-            <div class="services-block">
-              <i class="fab fa-node-js"></i>
-              <span>Node</span>
-              <p class="separator">Lorem ipsum node details</p>
-            </div>
-          </div>
-
-          <div class="swiper-slide">
-            <div class="services-block">
-              {/* <i class="bi bi-calendar4-week"></i> */}
-              <span style="color:#b8a07e;"><h3>C#</h3></span>
-              <span>C#/.NET</span>
-              <p class="separator">Lorem ipsum C#/.NET details go here.</p>
-            </div>
-          </div>
-
-          <div class="swiper-slide">
-            <div class="services-block">
-              <i class="fab fa-linux"></i>
-              <span>Linux</span>
-              <p class="separator">Lorem ipsum linux CLI details here</p>
-            </div>
-          </div>
-
-          <div class="swiper-slide">
-            <div class="services-block">
-              <i class="fab fa-github-square"></i>
-              <span>Git</span>
-              <p class="separator">Lorem ipsum git details go here</p>
-            </div>
-          </div>
-
-          <div class="swiper-slide">
-            <div class="services-block">
-              {/*  <i class="fab fa-html5"></i> */}
-              <i class="fas fa-tools"></i>
-              <span>Full-Stack Development</span>
-              <p class="separator">Lorem ipsum Full Stack Development details here</p>
-            </div>
-          </div>
-        </div>
-        <div class="swiper-pagination"></div>
-      </div>
-
-    </div>
-  </div>
-  {/* End Services Section
-
-  ======= Portfolio Section ======= */}
-  <div id="portfolio" class="paddsection">
-
-    <div class="container">
-      <div class="section-title text-center">
-        <h2>My Portfolio</h2>
-      </div>
-    </div>
-
-    <div class="container">
-
-      <div class="row">
-        <div class="col-lg-12 d-flex justify-content-center">
-          <ul id="portfolio-flters">
-            <li data-filter="*" class="filter-active">All</li>
-            <li data-filter=".filter-app">JavaScript</li>
-            <li data-filter=".filter-card">C#</li>
-            <li data-filter=".filter-web">Web</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="row portfolio-container">
-
-        <div class="col-lg-4 col-md-6 portfolio-item filter-card">
-          <img src="./../img/{}" class="img-fluid" alt=""/>
-          <div class="portfolio-info">
-            <h4>Satoshi's Crypto</h4>
-            <p>ASP.NET Core MVC application that scrapes reddit for the most mentioned cryptos in the last day, tallies the results, and returns them to the user.</p>
-              <a href="./../img/{}" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="Satoshi's Crypto"><i class="bx bx-plus"></i></a>
-              <a href="/portfolio-details/satoshi.html" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
-            <a href="assets/img/portfolio/portfolio-1.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="Satoshi's Crypto"><i class="bx bx-plus"></i></a>
-            <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
-          </div>
-        </div>
-      </div>
-    </div>
-
-  </div>
-    {/* End Portfolio Section
-
-  ======= Contact Section ======= */}
-  <div id="contact" class="paddsection">
-    <div class="container">
-      <div class="contact-block1">
-        <div class="row">
-
-          <div class="col-lg-6">
-            <div class="contact-contact">
-
-              <h2 class="mb-30">CONTACT ME</h2>
-
-              <ul class="contact-details">
-                <li><span>Vancouver WA, United States</span></li>
-                <li><span>(360)-553-8451</span></li>
-                <li><span>kdrendel99@gmail.com</span></li>
-              </ul>
-            </div>
-          </div>
-
-          <div class="col-lg-6">
-            <form role="form" class="php-email-form">
-              <div class="row gy-3">
-
-                <div class="col-lg-6">
-                  <div class="form-group contact-block1">
-                    <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required/>
-                  </div>
-                </div>
-
-                <div class="col-lg-6">
-                  <div class="form-group">
-                    <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required/>
-                  </div>
-                </div>
-
-                <div class="col-lg-12">
-                  <div class="form-group">
-                    <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" required/>
-                  </div>
-                </div>
-
-                <div class="col-lg-12">
-                  <div class="form-group">
-                    <textarea class="form-control" name="message" placeholder="Message" required></textarea>
-                  </div>
-                </div>
-
-                <div class="col-lg-12">
-                  <div class="loading">Loading</div>
-                  <div class="error-message"></div>
-                  <div class="sent-message">Your message has been sent. Thank you!</div>
-                </div>
-
-                <div class="mt-0">
-                  <input type="submit" class="btn btn-defeault btn-send" value="Send message"/>
-                </div>
-              </div>
-            </form>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  {/* End Contact Section */}
-
-</main>
-{/* End #main */}
-
-<a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
-
-</body>
-
-
-
+    addEvListen('click', '.navbar .dropdown > a', function(e) {
+      if (elSelector('#navbar').classList.contains('navbar-mobile')) {
+        e.preventDefault();
+        this.nextElementSibling.classList.toggle('dropdown-active');
+      }
+    }, true);
+  
+    // Easy on scroll event listener 
+    const onscroll = (el, listener) => {
+      el.addEventListener('scroll', listener);
+    }
+  
+  
+    // Scroll with offset on links with a class name .scrollto
+  
+    addEvListen('click', '.scrollto', function(e) {
+    if (elSelector(this.hash)) {
+      e.preventDefault();
+  
+      let navbar = elSelector('#navbar');
+      if (navbar.classList.contains('navbar-mobile')) {
+        navbar.classList.remove('navbar-mobile');
+        let navbarToggle = elSelector('.mobile-nav-toggle');
+        navbarToggle.classList.toggle('bi-list');
+        navbarToggle.classList.toggle('bi-x');
+      }
+      scrollto(this.hash);
+    }
+    }, true);
+  }  
+}
 
 
 
@@ -250,3 +106,164 @@ FOOTER:
   </div>
 
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+
+
+
+  //WORKING HEADER DROPDOWN CODE:
+  import React, { useEffect, useState } from "react";
+import { connect } from 'react-redux';
+import * as c from './../actions/ActionTypes';
+
+
+
+function Header(props){
+  const [dropdown, setDropdown] = React.useState(false);
+
+  useEffect(() => console.log(dropdown));
+  let dropdownVisible = useEffect(() => dropdown);
+
+  const resetSelected = () => {
+    clearProj();
+    clearJourn();
+  }
+
+  const clearProj = () => {
+    const { dispatch } = props;
+    const action = {
+      type: c.REMOVE_SELECTED_PROJECT
+    }
+    dispatch(action);
+  }
+
+  const clearJourn = () => {
+    const { dispatch } = props;
+    const action = {
+      type: c.REMOVE_SELECTED_JOURNAL
+    }
+    dispatch(action);
+  }
+
+  // const dropDownStyle = {
+  //     color: "green",
+  // }
+
+  const elSelector = (el, all = false) => {
+    el = el.trim();
+    if (all) {
+      console.log(el + ' = select all true');
+      return [...document.querySelectorAll(el)];
+  } else {
+      console.log(el + ' = select all false');
+      return document.querySelector(el);
+    }
+  }
+  
+  const addEvListen = (type, el, listener, all = false) => {
+    let selectEl = elSelector(el, all);
+    if (selectEl) {
+      if (all) {
+        selectEl.forEach(e => e.addEventListener(type, listener));
+        console.log(el + ' = on all true');
+      } else {
+        selectEl.addEventListener(type, listener);
+        console.log(el + ' = on all false');
+      }
+    }
+  }
+  
+  const scrollto = (el) => {
+    let header = elSelector('#header');
+    let offset = header.offsetHeight;
+  
+    if (!header.classList.contains('header-scrolled')) {
+      offset -= 16;
+    }
+  
+    let elementPos = elSelector(el).offsetTop;
+    window.scrollTo({
+      top: elementPos - offset,
+      behavior: 'smooth'
+    })
+  }
+
+
+  const toggleDropdown = () => {
+    setDropdown(!dropdown);
+
+    if ({dropdown}){
+      // Mobile nav toggle 
+    
+      elSelector('#navbar').classList.toggle('navbar-mobile');
+      elSelector('#navbar').classList.toggle('bi-list');
+      elSelector('#navbar').classList.toggle('bi-x');
+    
+    
+      // Mobile nav dropdowns activate 
+
+      addEvListen('click', '.navbar .dropdown > a', function(e) {
+        if (elSelector('#navbar').classList.contains('navbar-mobile')) {
+          e.preventDefault();
+          this.nextElementSibling.classList.toggle('dropdown-active');
+        }
+      }, true);
+    
+      // Easy on scroll event listener 
+      const onscroll = (el, listener) => {
+        el.addEventListener('scroll', listener);
+      }
+    
+    
+      // Scroll with offset on links with a class name .scrollto
+    
+      addEvListen('click', '.scrollto', function(e) {
+      if (elSelector(this.hash)) {
+        e.preventDefault();
+    
+        let navbar = elSelector('#navbar');
+        if (navbar.classList.contains('navbar-mobile')) {
+          navbar.classList.remove('navbar-mobile');
+          let navbarToggle = elSelector('.mobile-nav-toggle');
+          navbarToggle.classList.toggle('bi-list');
+          navbarToggle.classList.toggle('bi-x');
+        }
+        scrollto(this.hash);
+      }
+      }, true);
+    }  
+  }
+
+
+  
+  return (
+    <React.Fragment>
+      <header id="header" className="fixed-top ">
+        <div className="container d-flex align-items-center justify-content-between">
+
+          <h1 className="logo"><a href="index.html">Karlson Drendel</a></h1>
+          <nav id="navbar" className="navbar">
+            <ul>
+                <li><a className="nav-link scrollto active" href="#hero">Home</a></li>
+                <li><a className="nav-link scrollto" href="#about">About</a></li>
+                <li><a className="nav-link scrollto" href="#portfolio">Portfolio</a></li>
+                <li><a className="nav-link scrollto" href="#journal">Blog</a></li>
+                <li><a className="nav-link scrollto" href="#contact">Contact</a></li>
+            </ul>
+            <i className="bi bi-list mobile-nav-toggle" onClick = {() => toggleDropdown()}></i>
+            {/* <Dropdown /> */}
+          </nav>
+        </div> 
+      </header>  
+    </React.Fragment>
+  );
+}
+
+const mapStateToProps = state => {
+  return {
+    selectedJourn: state.selectedJourn
+  }
+}
+
+Header = connect(mapStateToProps)(Header);
+
+export default Header;

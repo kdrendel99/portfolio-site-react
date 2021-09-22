@@ -3,7 +3,7 @@ import Project from './Project';
 import Journal from './Journal';
 import PropTypes from "prop-types";
 import me from './../img/me.jpg';
-import runAnimations from './../helper';
+// import runAnimations from './../helper';
 
 // import './../../node_modules/bootstrap/dist/css/bootstrap.min.css';
 // import './../../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js';
@@ -11,27 +11,26 @@ import runAnimations from './../helper';
 import './../../node_modules/swiper/swiper-bundle.min.js';
 
 function Home(props){
-  const [animations, setAnimations] = React.useState(true);
+  // const [animations, setAnimations] = React.useState(true);
 
-  useEffect(() => {
-    if(animations){
-      if (animations){
-        runAnimations();
-      }
-    }
-    return () => {
-      setAnimations(false);
-    }
-  })
+  // useEffect(() => {
+  //   if(animations){
+  //     if (animations){
+  //       runAnimations();
+  //     }
+  //   }
+  //   return () => {
+  //     setAnimations(false);
+  //   }
+  // })
 
-  useEffect( () => {
-    console.log("reset")
-    props.resetSelections();
-  }, []);
+  // useEffect( () => {
+  //   console.log("reset")
+  //   props.resetSelections();
+  // }, []);
 
   return (
     <React.Fragment>
-  <body>
 
     {/* ======= Hero Section ======= */}
     <div id="hero" className="home">
@@ -289,7 +288,6 @@ function Home(props){
 
     <a href="#" className="back-to-top d-flex align-items-center justify-content-center"><i className="bi bi-arrow-up-short"></i></a>
 
-  </body>
     </React.Fragment>
   );
 }

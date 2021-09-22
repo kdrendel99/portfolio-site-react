@@ -5,9 +5,8 @@ import Isotope from 'isotope-layout';
 import GLightbox from 'glightbox';
 
 const runAnimations = function() {
-  /**
-   * Easy selector helper function
-   */
+  // Easy selector helper function
+
   const select = (el, all = false) => {
     el = el.trim()
     if (all) {
@@ -17,10 +16,8 @@ const runAnimations = function() {
     }
   }
 
-  /**
-   * Easy event listener function
-   */
-  const on = (type, el, listener, all = false) => {
+  // Easy event listener function
+    const on = (type, el, listener, all = false) => {
     let selectEl = select(el, all)
     if (selectEl) {
       if (all) {
@@ -31,38 +28,29 @@ const runAnimations = function() {
     }
   }
 
-  /**
-   * Easy on scroll event listener 
-   */
+  // Easy on scroll event listener 
   const onscroll = (el, listener) => {
     el.addEventListener('scroll', listener)
   }
 
-
-  /**
-   * Mobile nav toggle went here
-  //  */
+  // Mobile nav toggle went here
 
 
-  /**
-   * Back to top button
-   */
-    let backtotop = select('.back-to-top')
-    if (backtotop) {
-      const toggleBacktotop = () => {
-        if (window.scrollY > 100) {
-          backtotop.classList.add('active')
-        } else {
-          backtotop.classList.remove('active')
-        }
+  // Back to top button
+  let backtotop = select('.back-to-top')
+  if (backtotop) {
+    const toggleBacktotop = () => {
+      if (window.scrollY > 100) {
+        backtotop.classList.add('active')
+      } else {
+        backtotop.classList.remove('active')
       }
-      window.addEventListener('load', toggleBacktotop)
-      onscroll(document, toggleBacktotop)
     }
+    window.addEventListener('load', toggleBacktotop)
+    onscroll(document, toggleBacktotop)
+  }
 
-  /**
-   * Hero type effect
-   */
+  // Hero type effect
   const typed = select('.typed')
   if (typed) {
     let typed_strings = typed.getAttribute('data-typed-items')
@@ -76,9 +64,7 @@ const runAnimations = function() {
     });
   }
 
-  /**
-   * Testimonials slider
-   */
+  // Testimonials slider
   new Swiper('.services-slider', {
     speed: 600,
     loop: true,
@@ -108,9 +94,7 @@ const runAnimations = function() {
     }
   });
 
-  /**
-   * Porfolio isotope and filter
-   */
+  // Porfolio isotope and filter
   window.addEventListener('load', () => {
     let portfolioContainer = select('.portfolio-container');
     if (portfolioContainer) {
@@ -131,22 +115,16 @@ const runAnimations = function() {
         portfolioIsotope.arrange({
           filter: this.getAttribute('data-filter')
         });
-
       }, true);
     }
-
   });
 
-  /**
-   * Initiate portfolio lightbox 
-   */
+  // Initiate portfolio lightbox 
   const portfolioLightbox = GLightbox({
     selector: '.portfolio-lightbox'
   });
 
-  /**
-   * Portfolio details slider
-   */
+  // Portfolio details slider
   new Swiper('.portfolio-details-slider', {
     speed: 400,
     loop: true,
@@ -160,6 +138,6 @@ const runAnimations = function() {
       clickable: true
     }
   });
-
 }
+
 export default runAnimations;

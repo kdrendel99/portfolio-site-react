@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect } from "react";
 import * as c from './../actions/ActionTypes';
 import PropTypes from "prop-types";
 import navAnimations from '../navbar/navbar';

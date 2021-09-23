@@ -18,7 +18,6 @@ class Main extends React.Component {
     };
   }
 
-
   clearProj = () => {
     const { dispatch } = this.props;
     const action = {
@@ -39,6 +38,7 @@ class Main extends React.Component {
     this.clearProj();
     this.clearJourn();
   }
+
 
   handleChangingSelectedJourn = (id) => {
     const { dispatch } = this.props;
@@ -66,7 +66,7 @@ class Main extends React.Component {
 
     if (this.props.selectedProj != null) {
       currentlyVisibleState = <ProjectDetail project = {this.props.selectedProj} resetSelected = {this.handleClick}/>;
-    } 
+    }
     else if (this.props.selectedJourn != null){
       currentlyVisibleState = <JournalDetail journal = {this.props.selectedJourn} resetSelected = {this.handleClick}/>;
     }

@@ -217,7 +217,7 @@ function Home(props){
 
       {/* ======= Contact Section ======= */}
       <div id="contact" className="paddsection">
-        <Contact />
+        <Contact sendMessageTrue = {props.sendMessageTrue}/>
       </div>
       {/* End Contact Section */}
 

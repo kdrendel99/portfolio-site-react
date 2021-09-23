@@ -30,14 +30,15 @@ h4 {
   font-weight: 600;
 }
 
-a {
+a, a:link, a:visited{
   color: #292929;
-  text-decoration: none !important;
+  text-decoration: none;
   transition: all 0.5s ease-in-out 0s;
 }
 
 a:hover {
   transition: all 0.5s ease-in-out 0s;
+  color: #b8a07e;
   cursor: pointer;
 }
 
@@ -609,6 +610,16 @@ p {
   padding-bottom: 10px;
 }
 
+.contact-details a{
+  text-decoration: underline !important;
+  transition: all 0.5s ease-in-out 0s;
+}
+.contact-details a:hover{
+  text-decoration: underline !important;
+  color: #b8a07e;
+  transition: all 0.5s ease-in-out 0s;
+}
+
 #contact input, #contact textarea {
   width: 100%;
   margin-bottom: 5px;
@@ -616,69 +627,6 @@ p {
 
 #contact textarea {
   min-height: 160px;
-}
-
-.php-email-form .error-message {
-  display: none;
-  color: #fff;
-  background: #ed3c0d;
-  text-align: left;
-  padding: 15px;
-  margin-bottom: 15px;
-  font-weight: 600;
-}
-
-.php-email-form .error-message br + br {
-  margin-top: 25px;
-}
-
-.php-email-form .sent-message {
-  display: none;
-  color: #fff;
-  background: #18d26e;
-  text-align: center;
-  padding: 15px;
-  font-weight: 600;
-  margin-bottom: 15px;
-}
-
-.php-email-form .loading {
-  display: none;
-  background: #fff;
-  text-align: center;
-  padding: 15px;
-  margin-bottom: 15px;
-}
-
-.php-email-form .loading:before {
-  content: "";
-  display: inline-block;
-  border-radius: 50%;
-  width: 24px;
-  height: 24px;
-  margin: 0 10px -6px 0;
-  border: 3px solid #18d26e;
-  border-top-color: #eee;
-  -webkit-animation: animate-loading 1s linear infinite;
-  animation: animate-loading 1s linear infinite;
-}
-
-@-webkit-keyframes animate-loading {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-}
-
-@keyframes animate-loading {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
 }
 
 /*--------------------------------------------------------------
@@ -1212,6 +1160,7 @@ blockquote {
   .contact-contact {
     margin-bottom: 30px;
   }
+
   /* Footer */
   #footer .socials-media ul li {
     margin-right: 0;

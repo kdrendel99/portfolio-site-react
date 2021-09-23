@@ -113,4 +113,3 @@ const mapStateToProps = state => {
 Main = connect(mapStateToProps)(Main);
 
 export default Main;
-

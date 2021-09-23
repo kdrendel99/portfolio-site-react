@@ -1,16 +1,16 @@
 import React, { useEffect }from "react";
 
 function Contact(){
-  const [sentMessage, setMessage] = React.useState(false);
+  // const [sentMessage, setMessage] = React.useState(false);
 
-  const validateForm = () => {
-    const name = document.querySelector('[name="name"]').value;
-    const email = document.querySelector('[name="email"]').value;
-    const subject = document.querySelector('[name="subject"]').value;
-    const message = document.querySelector('[name="message"]').value;
-    //validation occurs here
-    //if validation returns OK, send all of the above to the api.
-  }
+  // const validateForm = () => {
+  //   const name = document.querySelector('[name="name"]').value;
+  //   const email = document.querySelector('[name="email"]').value;
+  //   const subject = document.querySelector('[name="subject"]').value;
+  //   const message = document.querySelector('[name="message"]').value;
+  //   //validation occurs here
+  //   //if validation returns OK, send all of the above to the api.
+  // }
 
   function renderForm(){
     return (
@@ -88,7 +88,8 @@ function Contact(){
               </div>
             </div>
             <div className="col-lg-6">
-              {sentMessage ? renderThankYou() : renderForm()}
+              {/* {sentMessage ? renderThankYou() : renderForm()} */}
+              {renderForm()}
             </div>
           </div>
         </div>

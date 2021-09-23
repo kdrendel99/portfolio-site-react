@@ -6,9 +6,11 @@ import Main from "./Main";
 function App(){
   return ( 
     <React.Fragment>
-      <Header />
-      <Main />
-      <Footer />
+      <React.StrictMode>
+        <Header />
+        <Main />
+        <Footer />
+      </React.StrictMode>
     </React.Fragment>
   );
 }

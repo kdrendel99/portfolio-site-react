@@ -1,5 +1,6 @@
 import React, {useEffect} from "react";
 import PropTypes from "prop-types";
+// import runAnimations from './../helper';
 import rocket from './../img/portfolio/rocket.jpg';
 import park from './../img/portfolio/nationalpark.jpg';
 import jukebox from './../img/portfolio/jukebox.jpg';
@@ -10,6 +11,7 @@ import './../../node_modules/swiper/swiper-bundle.min.js';
 
 function Project(props){
     const [img, setImg] = React.useState(null);
+    // const [animations, setAnimations] = React.useState(true);
 
     function renderImage(){
       let incomingImg = props.image;
@@ -41,6 +43,15 @@ function Project(props){
     useEffect(() => {
       renderImage();
     })
+
+  //   useEffect(() => {
+  //     if (animations){
+  //       runAnimations();
+  //     }
+  //   return () => {
+  //     setAnimations(false);
+  //   }
+  // })
   return (
 
     <React.Fragment>

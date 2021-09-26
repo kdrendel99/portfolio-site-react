@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import * as c from './../actions/ActionTypes';
 import PropTypes from "prop-types";
 import navAnimations from '../navbar/navbar';
@@ -8,15 +8,19 @@ import './../navbar/navbar.css';
 function Header(props){
   const [dropdown, setDropdown] = React.useState(false);
   const [navbarAnimations, setAnimations] = React.useState(true);
+  const [navbarMobile, setNavbarMobile] = React.useState(dropdown)
+  //prevent dropdown from initially changing to true
+  const [dropdownInitial, setDropdownInitial] = React.useState(false)
 
-  function addEventListenerToClick(){
-    let selectEl = document.querySelector('.mobile-nav-toggle');
-    selectEl.addEventListener('click', function(e) {
-      elSelector('#navbar').classList.toggle('navbar-mobile')
-      this.classList.toggle('bi-list')
-      this.classList.toggle('bi-x')
-    });
+  const useFocus = () => {
+    const dropdownRef = useRef(null)
+    const setFocus = () => {dropdownRef.current && dropdownRef.current.focus()}
+    
+    return [ dropdownRef, setFocus ]
   }
+
+  const [dropdownLoaded, setDropdownLoaded] = useFocus();
+
 
   useEffect(() => {
     if(navbarAnimations){
@@ -24,15 +28,29 @@ function Header(props){
         navAnimations();
       }
     }
-    return () => {
-      setAnimations(false);
-      addEventListenerToClick();
-    }
   })
 
+  const toggleDropdown = () => {
+    let currentlyLoadedDropdown = `${dropdownLoaded.current.className}`;
+    currentlyLoadedDropdown = '.' + currentlyLoadedDropdown.substring(11);
+    const navbar = document.querySelector('#navbar');
+    let dropdownIcon = document.querySelector('.mobile-nav-toggle')
+
+      navbar.classList.toggle('navbar-mobile')
+      dropdownIcon.classList.toggle('bi-list')
+      dropdownIcon.classList.toggle('bi-x')
+  }
+
   useEffect(() => {
-    addEventListenerToClick();
-  })
+    //Only runs on the first load. Prevents initial load from toggling dropdown to true.
+    if (!dropdownInitial){
+      setDropdownInitial(true);
+      return
+    } 
+    else if (dropdownInitial){
+      toggleDropdown()
+    }
+  }, [dropdown])
 
   const resetSelected = () => {
     clearProj();
@@ -57,80 +75,7 @@ function Header(props){
   }
 
 
-  const elSelector = (el, all = false) => {
-    el = el.trim();
-    if (all) {
-      return [...document.querySelectorAll(el)];
-  } else {
-      return document.querySelector(el);
-    }
-  }
-  
-  const addEvListen = (type, el, listener, all = false) => {
-    let selectEl = elSelector(el, all);
-    if (selectEl) {
-      if (all) {
-        selectEl.forEach(e => e.addEventListener(type, listener));
-      } else {
-        selectEl.addEventListener(type, listener);
-      }
-    }
-  }
-  
-  const scrollto = (el) => {
-    let header = elSelector('#header');
-    let offset = header.offsetHeight;
-  
-    if (!header.classList.contains('header-scrolled')) {
-      offset -= 16;
-    }
-  
-    let elementPos = elSelector(el).offsetTop;
-    window.scrollTo({
-      top: elementPos - offset,
-      behavior: 'smooth'
-    })
-  }
 
-
-  const toggleDropdown = () => {
-    setDropdown(!dropdown);
-
-    if ({dropdown}){
-    
-      // Mobile nav dropdowns activate 
-
-      addEvListen('click', '.navbar .dropdown > a', function(e) {
-        if (elSelector('#navbar').classList.contains('navbar-mobile')) {
-          e.preventDefault();
-          this.nextElementSibling.classList.toggle('dropdown-active');
-        }
-      }, true);
-    
-      // Easy on scroll event listener 
-      const onscroll = (el, listener) => {
-        el.addEventListener('scroll', listener);
-      }
-    
-    
-      // Scroll with offset on links with a class name .scrollto
-    
-      addEvListen('click', '.scrollto', function(e) {
-      if (elSelector(this.hash)) {
-        e.preventDefault();
-    
-        let navbar = elSelector('#navbar');
-        if (navbar.classList.contains('navbar-mobile')) {
-          navbar.classList.remove('navbar-mobile');
-          let navbarToggle = elSelector('.mobile-nav-toggle');
-          navbarToggle.classList.toggle('bi-list');
-          navbarToggle.classList.toggle('bi-x');
-        }
-        scrollto(this.hash);
-      }
-      }, true);
-    }  
-  } 
   
   return (
     {dropdown},
@@ -139,7 +84,7 @@ function Header(props){
         <div className="container d-flex align-items-center justify-content-between">
 
           <h1 className="logo"><a href="index.html">Karlson Drendel</a></h1>
-          <nav id="navbar" className="navbar">
+          <nav id="navbar" className="navbar" >
             <ul>
                 <li><a onClick = {() => resetSelected()} className="nav-link scrollto active" href="#hero">Home</a></li>
                 <li><a onClick = {() => resetSelected()} className="nav-link scrollto" href="#about">About</a></li>
@@ -147,7 +92,9 @@ function Header(props){
                 <li><a onClick = {() => resetSelected()} className="nav-link scrollto" href="#journal">Blog</a></li>
                 <li><a onClick = {() => resetSelected()} className="nav-link scrollto" href="#contact">Contact</a></li>
             </ul>
-            <i className="bi bi-list mobile-nav-toggle" onClick = {() => toggleDropdown()}></i>
+            <i className="bi bi-list mobile-nav-toggle" 
+            ref={dropdownLoaded} onLoad={setDropdownLoaded} 
+            onClick = {() => setDropdown(!dropdown)}></i>
           </nav>
         </div> 
       </header>  

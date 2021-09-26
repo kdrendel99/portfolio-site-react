@@ -50,7 +50,6 @@ function Project(props){
             <div className="portfolio-info">
               <h4>{props.name}</h4>
               <p>{props.description}</p>
-              <a href={img} data-gallery="portfolioGallery" className="portfolio-lightbox preview-link" title={props.type}><i className="bx bx-plus"></i></a>
               <a onClick = {() => props.whenProjClicked(props.id)}className="details-link" title="More Details"><i className="bx bx-link"></i></a>
             </div>
           </div>

@@ -8,7 +8,9 @@ import './../../node_modules/swiper/swiper-bundle.min.js';
 
 function JournalDetail(props){
     const [img, setImg] = React.useState(null);
-    const { journal, resetSelected } = props;
+    const { journal, 
+      // resetSelected 
+    } = props;
 
     function renderImage(){
       let incomingImg = journal.image;

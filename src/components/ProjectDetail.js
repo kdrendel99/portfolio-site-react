@@ -1,5 +1,9 @@
 import React, { useEffect } from "react";
 import PropTypes from "prop-types";
+// import './../index.css';
+import 'isotope-layout';
+import './../navbar/navbar.css';
+import 'bootstrap';
 
 import rocket from './../img/portfolio/rocket.jpg';
 import park from './../img/portfolio/nationalpark.jpg';

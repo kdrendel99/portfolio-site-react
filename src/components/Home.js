@@ -208,7 +208,6 @@ function Home(props){
                       id={project.id}
                       key={project.id}/>
                   )}
-                  {console.log('finished mapping projects')}
                 </div>
 
         </div>

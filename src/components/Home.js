@@ -184,9 +184,9 @@ function Home(props){
         <div className="row">
                 <div className="col-lg-12 d-flex justify-content-center">
                   <ul id="portfolio-flters">
-                    <li onClick={handleFilterKeyChange('*')}>All</li>
-                    <li onClick={handleFilterKeyChange('filter-app')}>JavaScript</li>
-                    <li onClick={handleFilterKeyChange('filter-card')}>C#</li> 
+                    <li onClick={handleFilterKeyChange('*')} className={filterKey === '*' ? 'filter-active': null}>All</li>
+                    <li onClick={handleFilterKeyChange('filter-app')} className={filterKey === 'filter-app' ? 'filter-active': null}>JavaScript</li>
+                    <li onClick={handleFilterKeyChange('filter-card')} className={filterKey === 'filter-card' ? 'filter-active': null}>C#</li> 
 
                   </ul>
                 </div>

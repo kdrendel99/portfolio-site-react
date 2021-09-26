@@ -37,6 +37,7 @@ function Header(props){
   const resetSelected = () => {
     clearProj();
     clearJourn();
+    setDropdown(false);
   }
 
   const clearProj = () => {

@@ -1,4 +1,4 @@
-import React, { useEffect }from "react";
+import React from "react";
 
 function Contact(){
   // const [sentMessage, setMessage] = React.useState(false);
@@ -14,8 +14,8 @@ function Contact(){
 
   function renderForm(){
     return (
-      <form role="form" className="php-email-form" action="https://formsubmit.co/cd4e17d037546dab8d309e9e346eb7a6" method="POST">
-      {/* <input type="hidden" name="_subject" value="New message from portfolio website."/> */}
+      <form className="php-email-form" action="https://formsubmit.co/cd4e17d037546dab8d309e9e346eb7a6" method="POST">
+      <input type="hidden" name="_subject" value="New message from portfolio website."/>
         <div className="row gy-3">
           <div className="col-lg-6">
             <div className="form-group contact-block1">
@@ -52,25 +52,25 @@ function Contact(){
     )
   }
 
-  function renderThankYou(){
-    return (
-      <div id="about" className="paddsection">
-        <div className="container">
-          <div className="row justify-content-between">
+  // function renderThankYou(){
+  //   return (
+  //     <div id="about" className="paddsection">
+  //       <div className="container">
+  //         <div className="row justify-content-between">
 
-            <div className="col-lg-7">
-              <div className="about-descr">
-                <h2>Thank you!</h2>
-                <div className="portfolio-description">
-                  <p>Your message has been sent. Thanks for inquiring, I'll be in touch soon!</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    )
-  }
+  //           <div className="col-lg-7">
+  //             <div className="about-descr">
+  //               <h2>Thank you!</h2>
+  //               <div className="portfolio-description">
+  //                 <p>Your message has been sent. Thanks for inquiring, I'll be in touch soon!</p>
+  //               </div>
+  //             </div>
+  //           </div>
+  //         </div>
+  //       </div>
+  //     </div>
+  //   )
+  // }
 
   return (
     <React.Fragment>

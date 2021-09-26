@@ -1,0 +1,492 @@
+import React, { useEffect, useState } from "react";
+import Project from './Project';
+import Journal from './Journal';
+import Contact from './Contact';
+import PropTypes from "prop-types";
+import Isotope from 'isotope-layout';
+import me from './../img/me.jpg';
+import runAnimations from './../helper';
+// import ImagesLoaded from './../../node_modules/imagesloaded/imagesloaded.pkgd.min.js/';
+import './../../node_modules/swiper/swiper-bundle.min.js';
+import { Spinner } from "react-bootstrap";
+
+
+function Home(props){
+  const [animations, setAnimations] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
+  const [projects, setProjects] = useState(null);
+  const [imagesCached, setImagesCached] = useState(false);
+
+  // useEffect(() => {
+  //   setProjects(props.projList)
+  //   const imgs = [projects];
+  //   cacheImages(imgs);
+  // },[]);
+
+  useEffect(() => {
+    setProjects(props.projList)
+    const imgs = [projects];
+    cacheImages(imgs);
+  });
+
+
+  useEffect(() => {
+    if(!isLoading){
+      runAnimations();
+    }
+    return () => {
+      setAnimations(false);
+      setIsLoading(true);
+      setProjects(null);
+      setImagesCached(false);
+    }
+  })
+
+  useEffect( () => {
+    console.log("reset")
+    props.resetSelections();
+    // setLoaded(true);
+    // callIsotope();
+  }, []);
+
+
+  const select = (el, all = false) => {
+    el = el.trim()
+    if (all) {
+      return [...document.querySelectorAll(el)]
+    } else {
+      return document.querySelector(el)
+    }
+  }
+
+  // Easy event listener function
+    const on = (type, el, listener, all = false) => {
+    let selectEl = select(el, all)
+    if (selectEl) {
+      if (all) {
+        selectEl.forEach(e => e.addEventListener(type, listener))
+      } else {
+        selectEl.addEventListener(type, listener)
+      }
+    }
+  }
+
+  useEffect(() => {
+    if (imagesCached){
+    // window.addEventListener('load', () => {
+      let portfolioContainer = select('.portfolio-container');
+      if (portfolioContainer) {
+        let portfolioIsotope = new Isotope(portfolioContainer, {
+          itemSelector: '.portfolio-item',
+          layoutMode: 'fitRows'
+        });
+
+        // let portfolioFilters = select('#portfolio-flters li', true);
+
+        // on('click', '#portfolio-flters li', function(e) {
+        //   e.preventDefault();
+        //   portfolioFilters.forEach(function(el) {
+        //     el.classList.remove('filter-active');
+        //   });
+        //   this.classList.add('filter-active');
+
+        //   portfolioIsotope.arrange({
+        //     filter: this.getAttribute('data-filter')
+        //   });
+        // }, true);
+      }
+    // });
+    }
+  });
+  
+
+    const cacheImages = async ({projList}) => {
+      const promises = await props.projList.map((src)=> {
+        return new Promise(function (resolve, reject) {
+          const img = new Image();
+
+          img.src = src;
+          img.onLoad = resolve();
+          img.onerror = reject();
+        });
+      });
+
+      await Promise.all(promises);
+
+      setIsLoading(false);
+      setImagesCached(true);
+    };
+
+
+  return (
+    <React.Fragment>
+      {isLoading
+      ?
+      <h1>Your mom gay</h1>
+      :
+      <React.Fragment> 
+    {/* ======= Hero Section ======= */}
+      <div id="hero" className="home">
+
+        <div className="container">
+          <div className="hero-content">
+            <h1>I am <span className="typed" data-typed-items="Karlson Drendel, a software engineer, a Full-Stack Developer, a Creative Thinker"></span></h1>
+            <p>Software Engineer, Full-Stack Developer, creative thinker</p>
+
+            <ul className="list-unstyled list-social">
+              {/* <li><a href="#"><i className="bi bi-facebook"></i></a></li>*/}
+              <li><a href="https://github.com/kdrendel99"><i className="fab fa-github-square"></i></a></li>
+              {/*  <li><a href="#"><i className="bi bi-twitter"></i></a></li>
+              <li><a href="#"><i className="bi bi-instagram"></i></a></li> */}
+              <li><a href="https://www.linkedin.com/in/karlson-drendel/"><i className="bi bi-linkedin"></i></a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      {/* End Hero */}
+
+      <main id="main">
+
+        {/* ======= About Section ======= */}
+        <div id="about" className="paddsection">
+          <div className="container">
+            <div className="row justify-content-between">
+
+              <div className="col-lg-4 ">
+                <div className="div-img-bg">
+                  <div className="about-img">
+                    <img src={me} className="img-responsive" alt="me"/>
+                  </div>
+                </div>
+              </div>
+
+              <div className="col-lg-7">
+                <div className="about-descr">
+
+                  <p className="p-heading">About Me </p>
+                  <p className="separator">My name is Karlson Drendel, and I'm a passionate Software Engineer/Full-Stack Developer seeking to kickstart my career as a programmer by gaining industry experience. I'm a recent coding bootcamp graduate looking to learn and grow my skillset in a dynamic work environment. I possess thousands of hours of hands-on, full time experience building and testing web apps, databases, and general full-stack development. I'm a motivated learner, and am always excited to learn new technologies. I also enjoy puzzles, creative thinking, photography, writing music, and bouldering.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        {/* End About Section
+        
+        ======= Services Section ======= */}
+        <div id="services">
+          <div className="container">
+
+            <div className="services-slider swiper-container" data-aos="fade-up" data-aos-delay="100">
+              <div className="swiper-wrapper">
+
+                <div className="swiper-slide">
+                  <div className="services-block">
+                    <i className="fab fa-react"></i>
+                    <span>React.js</span>
+                    <p className="separator">Lorem ipsum React details here</p>
+                  </div>
+                </div>
+
+                <div className="swiper-slide">
+                  <div className="services-block">
+                    <i className="fab fa-node-js"></i>
+                    <span>Node</span>
+                    <p className="separator">Lorem ipsum node details</p>
+                  </div>
+                </div>
+
+                <div className="swiper-slide">
+                  <div className="services-block">
+                    {/* <i className="bi bi-calendar4-week"></i> */}
+                    <h3 style={{color: "#b8a07e"}}>C#</h3>
+                    <span>C#/.NET</span>
+                    <p className="separator">Lorem ipsum C#/.NET details go here.</p>
+                  </div>
+                </div>
+
+                <div className="swiper-slide">
+                  <div className="services-block">
+                    <i className="fab fa-linux"></i>
+                    <span>Linux</span>
+                    <p className="separator">Lorem ipsum linux CLI details here</p>
+                  </div>
+                </div>
+
+                <div className="swiper-slide">
+                  <div className="services-block">
+                    <i className="fab fa-github-square"></i>
+                    <span>Git</span>
+                    <p className="separator">Lorem ipsum git details go here</p>
+                  </div>
+                </div>
+
+                <div className="swiper-slide">
+                  <div className="services-block">
+                    {/*  <i className="fab fa-html5"></i> */}
+                    <i className="fas fa-tools"></i>
+                    <span>Full-Stack Development</span>
+                    <p className="separator">Lorem ipsum Full Stack Development details here</p>
+                  </div>
+                </div>
+              </div>
+              <div className="swiper-pagination"></div>
+            </div>
+
+          </div>
+        </div>
+        {/* End Services Section
+        ======= Portfolio Section ======= */}
+        <div id="portfolio" className="paddsection">
+
+          <div className="container">
+            <div className="section-title text-center">
+              <h2>My Portfolio</h2>
+            </div>
+          </div>
+
+          <div className="container">
+
+            <div className="row">
+              <div className="col-lg-12 d-flex justify-content-center">
+                <ul id="portfolio-flters">
+                  <li data-filter="*" className="filter-active">All</li>
+                  <li data-filter=".filter-app">JavaScript</li>
+                  <li data-filter=".filter-card">C#</li>
+                  {/* <li data-filter=".filter-web">Web</li> */}
+                </ul>
+              </div>
+            </div>
+
+            <div className="row portfolio-container">
+            {props.projList.map((project) =>
+                <Project
+                  whenProjClicked = { props.onProjSelection }
+                  name={project.name}
+                  image={project.image}
+                  imgDes={project.imgDes}
+                  type={project.type}
+                  category={project.category}
+                  projDate={project.projDate}
+                  description={project.description}
+                  id={project.id}
+                  key={project.id}/>
+              )} 
+            </div>
+          </div>
+
+        </div>
+          {/* End Portfolio Section */}
+
+          {/* ======= Journal Section =======  */}
+        <div id="journal" className="text-left paddsection">
+          <div className="container">
+            <div className="section-title text-center">
+              <h2>journal</h2>
+            </div>
+          </div>
+
+          <div className="container">
+            <div className="journal-block">
+              <div className="row">
+              {props.journList.map((journal) =>
+                <Journal
+                  whenJournClicked = { props.onJournSelection }
+                  name={journal.name}
+                  image={journal.image}
+                  imgDes={journal.imgDes}
+                  projDate={journal.projDate}
+                  shortDes={journal.shortDes}
+                  description={journal.description}
+                  id={journal.id}
+                  key={journal.id}/>
+              )}
+
+              </div>
+            </div>
+          </div>
+
+        </div>
+        {/* <!-- End Journal Section --> */}
+          
+
+        {/* ======= Contact Section ======= */}
+        <div id="contact" className="paddsection">
+          <Contact sendMessageTrue = {props.sendMessageTrue}/>
+        </div>
+        {/* End Contact Section */}
+
+      </main>
+      {/* End #main */}
+
+      <a href="#" className="back-to-top d-flex align-items-center justify-content-center"><i className="bi bi-arrow-up-short"></i></a>
+      </React.Fragment>
+      }
+
+    </React.Fragment>
+  );
+}
+
+Home.propTypes = {
+  projList: PropTypes.array,
+  onProjSelection: PropTypes.func
+};
+
+export default Home;
+
+
+  // useEffect(() => {
+  //   if (imagesCached){
+  //   // window.addEventListener('load', () => {
+  //     let portfolioContainer = select('.portfolio-container');
+  //     if (portfolioContainer) {
+  //       let portfolioIsotope = new Isotope(portfolioContainer, {
+  //         itemSelector: '.portfolio-item',
+  //         layoutMode: 'fitRows'
+  //       });
+
+  //       // let portfolioFilters = select('#portfolio-flters li', true);
+
+  //       // on('click', '#portfolio-flters li', function(e) {
+  //       //   e.preventDefault();
+  //       //   portfolioFilters.forEach(function(el) {
+  //       //     el.classList.remove('filter-active');
+  //       //   });
+  //       //   this.classList.add('filter-active');
+
+  //       //   portfolioIsotope.arrange({
+  //       //     filter: this.getAttribute('data-filter')
+  //       //   });
+  //       // }, true);
+  //     }
+  //   // });
+  //   }
+  // });
+  
+
+
+
+
+  // const [node, setRef] = React.useState(null);
+
+  // const useFocus = () => {
+  //   const containerRef = useRef(null)
+  //   const setFocus = () => {containerRef.current && containerRef.current.focus()}
+
+  //   return [ containerRef, setFocus ]
+  // }
+
+  // const [containerLoaded, setContainerLoaded] = useFocus();
+
+
+  // useEffect(() => {
+  //   // console.log(containerLoaded.current.className)
+  //   // const testOne = containerLoaded.current.className;
+    
+  //   let currentlyLoadedContainer = `${containerLoaded.current.className}`;
+  //   currentlyLoadedContainer = '.' + currentlyLoadedContainer.substring(4);
+  //   console.log(currentlyLoadedContainer);
+
+  //   new Isotope(currentlyLoadedContainer, {
+  //     itemSelector: '.portfolio-item',
+  //     layoutMode: 'fitRows'
+  //   });
+  // })
+
+
+
+
+
+  // const [containerRef, setContainerRef] = useFocus()
+
+  // const container = useRef();
+
+  // const focusContainer = () => {
+  //   let portfolioContainer = container.current.focus();
+  //   if (portfolioContainer){
+  //     console.log(portfolioContainer);
+  //     new Isotope(portfolioContainer, {
+  //       itemSelector: '.portfolio-item',
+  //       layoutMode: 'fitRows'
+  //     });
+  //   } else {
+  //     console.log('idk man ur fuqqued')
+  //   }
+
+  // };
+
+
+
+
+  // useEffect(() => {
+  //   if (!node){
+  //     console.log('unmounted');
+  //     return null;
+  //   }
+
+  //   console.log('mounted');
+
+  //   const fn = () => {
+  //     console.log('fuck a train!')
+  //     //   new Isotope(node, {
+  //     //   itemSelector: '.portfolio-item',
+  //     //   layoutMode: 'fitRows'
+  //     // });
+  //   }
+
+  //   node.addEventListener('onload', fn);
+  //   return () => node.removeEventListener('onload', fn);
+  // }, [node])
+
+
+
+
+  // useEffect(() => {
+  //   if(animations){
+  //     if (animations){
+  //       runAnimations();
+  //     }
+  //   }
+  //   return () => {
+  //     setAnimations(false);
+  //   }
+  // })
+
+  // const container = document.querySelector('.portfolio-container');
+  // portfolioContainer.addEventListener('load', () => {
+  //     let portfolioIsotope = new Isotope(document.querySelector('.portfolio-container'), {
+  //       itemSelector: '.portfolio-item',
+  //       layoutMode: 'fitRows'
+  //     });
+  // });
+
+  // useEffect( () => {
+  //   console.log("reset")
+  //   props.resetSelections();
+  // }, []);
+
+  //       const loadIsotopes = () => {
+  //       console.log('loading isotopes');
+  //       let portfolioContainer = portfolioContainer.current.focus();
+  //         let portfolioIsotope = new Isotope(portfolioContainer, {
+  //           itemSelector: '.portfolio-item',
+  //           layoutMode: 'fitRows'
+  //         });
+
+  //         const allApps = all.current.focus();
+  //         const allJsApps = jsApps.current.focus();
+  //         const allCSharpApps = cSharpApps.current.focus();
+
+  //         const portfolioFilters = [allApps, allJsApps, allCSharpApps];
+
+  //         portfolioFilters.forEach(e => e.addEventListener('click', function(e){
+  //           e.preventDefault();
+  //           portfolioFilters.forEach(function(el){
+  //             el.classList.remove('filter-active');
+  //           })
+  //           this.classList.add('filter-active');
+  //         }))
+
+  //         portfolioIsotope.arrange({
+  //           filter: this.getAttribute('data-filter')
+  //         });
+  //         };

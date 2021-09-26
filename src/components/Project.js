@@ -55,7 +55,9 @@ function Project(props){
   return (
 
     <React.Fragment>
-          <div className={`col-lg-4 col-md-6 portfolio-item filter-${props.type}`}>
+          <div className={`col-lg-4 col-md-6 portfolio-item filter-${props.type}`} 
+          // ref={ItemLoaded} onLoad={setItemLoaded}
+          >
             <img src={img} className="img-fluid" alt={`${props.imgDes}`}/>
             <div className="portfolio-info">
               <h4>{props.name}</h4>

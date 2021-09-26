@@ -1,15 +1,3 @@
-import React, { useEffect, useFocus, useCallback, isElemVisible , useState, useRef, forwardRef, useImperativeHandle } from "react";
-import Project from './Project';
-import Journal from './Journal';
-import Contact from './Contact';
-import PropTypes from "prop-types";
-import me from './../img/me.jpg';
-import runAnimations from './../helper';
-import Isotope from 'isotope-layout';
-import imagesLoaded from 'imagesloaded';
-import './../../node_modules/swiper/swiper-bundle.min.js';
-
-function Home(props){
   // // init one ref to store the future isotope object
   const isotope = React.useRef()
   // store the filter keyword in a state
@@ -55,7 +43,111 @@ function Home(props){
   }, [filterKey])
 
   const handleFilterKeyChange = key => () => setFilterKey(key)
+  
 
+
+
+
+//========= in the render:==================================
+
+<div className="row">
+<div className="col-lg-12 d-flex justify-content-center">
+  <ul id="portfolio-flters">
+    <li onClick={handleFilterKeyChange('*')}>All</li>
+    <li onClick={handleFilterKeyChange('filter-app')}>JavaScript</li>
+    <li onClick={handleFilterKeyChange('filter-card')}>C#</li> 
+
+    {/* <li onClick={handleFilterKeyChange('*')}>Show Both</li>
+    <li onClick={handleFilterKeyChange('vege')}>Show Veges</li>
+    <li onClick={handleFilterKeyChange('fruit')}>Show Fruits</li> */}
+  </ul>
+</div>
+</div>
+
+<div className="row portfolio-container" 
+ref={containerLoaded} onLoad={setContainerLoaded}
+>
+
+      <div className="portfolio-item filter-app">
+        <span>Cucumber</span>
+      </div>
+      <div className="portfolio-item filter-app">
+        <span>Apple</span>
+      </div>
+      <div className="portfolio-item filter-card">
+        <span>Orange</span>
+      </div>
+      <div className="portfolio-item filter-app filter-card">
+        <span>Tomato</span>
+      </div>
+
+
+{/* {props.projList.map((project) =>
+<Project
+  whenProjClicked = { props.onProjSelection }
+  name={project.name}
+  image={project.image}
+  imgDes={project.imgDes}
+  type={project.type}
+  category={project.category}
+  projDate={project.projDate}
+  description={project.description}
+  id={project.id}
+  key={project.id}/>
+)} */}
+{console.log('finished mapping projects')}
+</div>
+    
+    
+    
+//============================================================
+
+
+
+
+
+
+
+
+
+import React, { useEffect, useFocus, useCallback, isElemVisible , useState, useRef, forwardRef, useImperativeHandle } from "react";
+import Project from './Project';
+import Journal from './Journal';
+import Contact from './Contact';
+import PropTypes from "prop-types";
+import me from './../img/me.jpg';
+import runAnimations from './../helper';
+import Isotope from 'isotope-layout';
+import imagesLoaded from 'imagesloaded';
+import './../../node_modules/swiper/swiper-bundle.min.js';
+
+function Home(props){
+  //============================================================= the below code works
+
+
+  const useFocus = () => {
+    const containerRef = useRef(null)
+    const setFocus = () => {containerRef.current && containerRef.current.focus()}
+
+    return [ containerRef, setFocus ]
+  }
+
+  const [containerLoaded, setContainerLoaded] = useFocus();
+
+
+  useEffect(() => {
+    runAnimations();
+    let currentlyLoadedContainer = `${containerLoaded.current.className}`;
+    currentlyLoadedContainer = '.' + currentlyLoadedContainer.substring(4);
+    console.log(currentlyLoadedContainer);
+
+    imagesLoaded(currentlyLoadedContainer, function(){
+        new Isotope(currentlyLoadedContainer, {
+          itemSelector: '.portfolio-item',
+          layoutMode: 'fitRows'
+        });
+      })
+  });
 
   return (
     <React.Fragment>
@@ -183,18 +275,24 @@ function Home(props){
 
         <div className="row">
                 <div className="col-lg-12 d-flex justify-content-center">
-                  <ul id="portfolio-flters">
-                    <li onClick={handleFilterKeyChange('*')}>All</li>
-                    <li onClick={handleFilterKeyChange('filter-app')}>JavaScript</li>
-                    <li onClick={handleFilterKeyChange('filter-card')}>C#</li> 
-
+                  <ul 
+                  // ref={portfolioFiltersDiv} 
+                  id="portfolio-flters">
+                    <li 
+                    // ref={all} 
+                    data-filter="*" className="filter-active">All</li>
+                    <li 
+                    // ref={jsApps}
+                    data-filter=".filter-app">JavaScript</li>
+                    <li 
+                    // ref={cSharpApps} 
+                    data-filter=".filter-card">C#</li>
                   </ul>
                 </div>
               </div>
-              
               <div className="row portfolio-container" 
-              ref={containerLoaded} onLoad={setContainerLoaded}
-              >
+                ref={containerLoaded} onLoad={setContainerLoaded}
+                >
                   {props.projList.map((project) =>
                     <Project
                       whenProjClicked = { props.onProjSelection }

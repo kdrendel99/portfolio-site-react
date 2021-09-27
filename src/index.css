@@ -1,4 +1,5 @@
-/* body {
+
+body {
   background: #ffffff;
   color: #898989;
   font-family: 'Poppins', helvetica;
@@ -130,7 +131,7 @@ p {
 
 .main-content {
   padding-top: 140px;
-} */
+}
 
 /*--------------------------------------------------------------
 # Back to top button
@@ -913,16 +914,17 @@ blockquote {
   transition: all 0.5s ease-in-out 0s;
 }
 
-.socials-media ul li i.fab.fa-github-square::before{
+.socials-media ul li i.fab.fa-github-square{
   position: relative;
-  bottom: -1.5px; 
-  font-size: 1.18em;
-}
+  bottom: 2px; 
+  font-size: 29px; 
+  /* color: green;  */
+} 
 
 
 .footerId {
   font-size: 12px;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.2em;
   font-weight: 500;
   margin-top: 0;
   text-transform: uppercase;

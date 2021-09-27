@@ -4,6 +4,7 @@ import PropTypes from "prop-types";
 import 'isotope-layout';
 import './../navbar/navbar.css';
 import 'bootstrap';
+import styles from './../index.css';
 
 import rocket from './../img/portfolio/rocket.jpg';
 import park from './../img/portfolio/nationalpark.jpg';
@@ -52,7 +53,8 @@ function ProjectDetail(props) {
   }, [])
   return(
     <React.Fragment>
-      <main id="main">
+      {/* <main id="main"> */}
+      <body>
       <section className="breadcrumbs">
         <div className="container">
 
@@ -68,6 +70,7 @@ function ProjectDetail(props) {
         </div>
       </section>
 
+      <div className="portfolioId">
       <section id="portfolio-details" className="portfolio-details">
         <div className="container">
 
@@ -111,7 +114,9 @@ function ProjectDetail(props) {
           </div>
         </div>
       </section>
-      </main>
+      </div>
+      </body>
+      {/* </main> */}
     </React.Fragment>
   );
 }

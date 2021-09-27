@@ -8,9 +8,7 @@ import './../../node_modules/swiper/swiper-bundle.min.js';
 
 function JournalDetail(props){
     const [img, setImg] = React.useState(null);
-    const { journal, 
-      // resetSelected 
-    } = props;
+    const { journal, resetSelected } = props;
 
     function renderImage(){
       let incomingImg = journal.image;
@@ -42,20 +40,6 @@ function JournalDetail(props){
     <React.Fragment>
 
     <main id="main">
-    {/* <section className="breadcrumbs">
-        <div className="container">
-
-          <div className="d-flex justify-content-between align-items-center">
-            <h2>{journal.name} Project Details</h2>
-            <ol>
-              <li><a onClick = {() => resetSelected()}>Home</a></li>
-              <li><a href="../index.html#journal">Journal</a></li>
-              <li>Journal Details</li>
-            </ol>
-          </div>
-
-        </div>
-      </section> */}
         <div className="main-content paddsection">
           <div className="container">
             <div className="row justify-content-center">

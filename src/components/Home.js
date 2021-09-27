@@ -205,8 +205,9 @@ function Home(props){
                       type={project.type}
                       category={project.category}
                       projDate={project.projDate}
-                      description={project.description}
+                      githubUrl={project.githubUrl}
                       shortDes={project.shortDes}
+                      description={project.description}
                       id={project.id}
                       key={project.id}/>
                   )}
@@ -237,7 +238,11 @@ function Home(props){
                 imgDes={journal.imgDes}
                 projDate={journal.projDate}
                 shortDes={journal.shortDes}
-                description={journal.description}
+                description1={journal.description1}
+                description2={journal.description2}
+                quote={journal.quote}
+                description3={journal.description3}
+                closer={journal.closer}
                 id={journal.id}
                 key={journal.id}/>
             )}

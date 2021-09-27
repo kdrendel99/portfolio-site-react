@@ -7,7 +7,7 @@ import AllProjects from './AllProjects';
 import AllJournals from './AllJournals';
 import * as c from './../actions/ActionTypes';
 import PropTypes from "prop-types";
-
+import index from './../index.css';
 
 class Main extends React.Component {
   constructor(props) {
@@ -82,7 +82,9 @@ class Main extends React.Component {
     }
     return (
       <React.Fragment>
+        {/* <body> */}
         {currentlyVisibleState}
+        {/* </body> */}
       </React.Fragment>
     );
   }

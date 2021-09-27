@@ -15,9 +15,10 @@ function Footer(){
           </ul>
 
         </div>
-
+      <div className='footerId'>
         <div className="credits">
           Designed by Karlson Drendel
+        </div>
         </div>
       </div>
     </div>

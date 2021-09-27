@@ -54,7 +54,7 @@ function ProjectDetail(props) {
   return(
     <React.Fragment>
       {/* <main id="main"> */}
-      <body>
+      {/* <body> */}
       <section className="breadcrumbs">
         <div className="container">
 
@@ -115,7 +115,7 @@ function ProjectDetail(props) {
         </div>
       </section>
       </div>
-      </body>
+      {/* </body> */}
       {/* </main> */}
     </React.Fragment>
   );

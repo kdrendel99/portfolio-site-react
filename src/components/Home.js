@@ -206,6 +206,7 @@ function Home(props){
                       category={project.category}
                       projDate={project.projDate}
                       description={project.description}
+                      shortDes={project.shortDes}
                       id={project.id}
                       key={project.id}/>
                   )}

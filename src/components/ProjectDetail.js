@@ -107,7 +107,7 @@ function ProjectDetail(props) {
                 </ul>
               </div>
               <div className="portfolio-description">
-                <h2>This is an example of portfolio detail</h2>
+                <h2>About {project.name}</h2>
                 <p>{project.description}</p>
               </div>
             </div>

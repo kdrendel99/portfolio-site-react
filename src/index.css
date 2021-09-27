@@ -1,4 +1,4 @@
-body {
+/* body {
   background: #ffffff;
   color: #898989;
   font-family: 'Poppins', helvetica;
@@ -130,7 +130,7 @@ p {
 
 .main-content {
   padding-top: 140px;
-}
+} */
 
 /*--------------------------------------------------------------
 # Back to top button
@@ -234,6 +234,13 @@ p {
   padding: 120px 0 0 0;
   background-color: white;
   min-height: 40px;
+
+  /* color: #898989;
+  font-family: "Poppins", helvetica;
+  font-size: 15px;
+  font-weight: 300;
+  line-height: 20px;
+  letter-spacing: 0.02em; */
 }
 
 @media (max-width: 992px) {
@@ -311,13 +318,26 @@ p {
   object-fit: cover;
 }
 
-#about .about-descr .p-heading {
+/* #about .about-descr .p-heading {
   font-family: 'Playfair Display', serif;
   font-size: 28px;
   text-align: left;
 }
 
 #about .about-descr .separator {
+  max-width: 80%;
+  margin-bottom: 0;
+  text-align: left;
+} */
+
+/* ========================= */
+.aboutId, .about-descr .p-heading {
+  font-family: 'Playfair Display', serif;
+  font-size: 28px;
+  text-align: left;
+}
+
+.aboutId , .about-descr .separator {
   max-width: 80%;
   margin-bottom: 0;
   text-align: left;
@@ -412,6 +432,15 @@ p {
 
 #portfolio .portfolio-item {
   margin-bottom: 30px;
+}
+
+.portfolioId {
+  color: #898989;
+  font-family: "Poppins", helvetica;
+  font-size: 15px;
+  font-weight: 300;
+  line-height: 20px;
+  letter-spacing: 0.02em;
 }
 
 #portfolio .portfolio-item .portfolio-info {
@@ -529,6 +558,15 @@ p {
 /*--------------------------------------------------------------
 # Journal
 --------------------------------------------------------------*/
+/* body > #portfolio-details {
+  color: #898989;
+  font-family: "Poppins", helvetica;
+  font-size: 15px;
+  font-weight: 300;
+  line-height: 20px;
+  letter-spacing: 0.02em;
+} */
+
 #journal, #journal-blog {
   height: auto;
   width: 100%;
@@ -580,13 +618,21 @@ p {
   margin: 0;
   font-size: 14px;
   line-height: 24px;
+  font-family: "Poppins", helvetica;
+  font-weight: 300;
+  letter-spacing: 0..2em;
 }
 
 .journal-image {
   max-width: 100%;
   max-height: 100%;
   margin: 0px auto;
+  margin-top: 0px;
 }
+
+/* .main .journal-image{
+  position: calc(-50%) center;
+} */
 
 /*--------------------------------------------------------------
 # Journal
@@ -604,17 +650,24 @@ p {
 
 .contact-details li {
   padding-bottom: 10px;
+  color: #898989;
+  font-family: "Poppins", helvetica;
+  font-size: 15px;
+  font-weight: 300;
+  line-height: 20px;
+  letter-spacing: 0.02em;
 }
 
-.contact-details a{
+/* .contact-details a{
   text-decoration: underline !important;
+  color: #292929;
   transition: all 0.5s ease-in-out 0s;
 }
 .contact-details a:hover{
   text-decoration: underline !important;
   color: #b8a07e;
   transition: all 0.5s ease-in-out 0s;
-}
+} */
 
 #contact input, #contact textarea {
   width: 100%;
@@ -847,32 +900,50 @@ blockquote {
   margin-right: 10px;
 }
 
-#footer .socials-media ul li a {
+.socials-media ul li a {
+  color: #898989;
   font-size: 24px;
-  color: #999;
-  letter-spacing: 0.1em;
-  font-weight: 500;
+  letter-spacing: 0.5em;
+  font-weight: 300;
   background: transparent;
-  text-transform: uppercase;
-  transition: all 0.5s ease-in-out 0s;
 }
 
-#footer .socials-media ul li a:hover {
+.footerId, .socials-media ul li a:hover {
   color: #b8a07e;
   transition: all 0.5s ease-in-out 0s;
 }
 
-#footer p {
+.socials-media ul li i.fab.fa-github-square::before{
+  position: relative;
+  bottom: -1.5px; 
+  font-size: 1.18em;
+}
+
+
+.footerId {
   font-size: 12px;
   letter-spacing: 0.1em;
   font-weight: 500;
   margin-top: 0;
   text-transform: uppercase;
+
+  margin: 25px 0;
+  padding: 0;
+  color: #999999;
+  line-height: 28px;
+
+  display: block;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+
+  text-align: center;
 }
 
-.credits {
-  font-size: 13px;
-}
+.credits { 
+  font-size: 9px;
+  } 
 
 /** Width between 1200x to 0
  *  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

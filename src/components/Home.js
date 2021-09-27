@@ -94,13 +94,14 @@ function Home(props){
                 </div>
               </div>
             </div>
-
+          <div className='aboutId'>
             <div className="col-lg-7">
               <div className="about-descr">
 
                 <p className="p-heading">About Me </p>
                 <p className="separator">My name is Karlson Drendel, and I'm a passionate Software Engineer/Full-Stack Developer seeking to kickstart my career as a programmer by gaining industry experience. I'm a recent coding bootcamp graduate looking to learn and grow my skillset in a dynamic work environment. I possess thousands of hours of hands-on, full time experience building and testing web apps, databases, and general full-stack development. I'm a motivated learner, and am always excited to learn new technologies. I also enjoy puzzles, creative thinking, photography, writing music, and bouldering.</p>
               </div>
+            </div>
             </div>
           </div>
         </div>

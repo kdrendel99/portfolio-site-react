@@ -49,7 +49,7 @@ function Project(props){
             <img src={img} className="img-fluid" alt={`${props.imgDes}`}/>
             <div className="portfolio-info">
               <h4>{props.name}</h4>
-              <p>{props.description}</p>
+              <p>{props.shortDes}</p>
               <a onClick = {() => props.whenProjClicked(props.id)}className="details-link" title="More Details"><i className="bx bx-link"></i></a>
             </div>
           </div>

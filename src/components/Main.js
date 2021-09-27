@@ -68,7 +68,8 @@ class Main extends React.Component {
       currentlyVisibleState = <ProjectDetail project = {this.props.selectedProj} resetSelected = {this.handleClick}/>;
     }
     else if (this.props.selectedJourn != null){
-      currentlyVisibleState = <JournalDetail journal = {this.props.selectedJourn} resetSelected = {this.handleClick}/>;
+      currentlyVisibleState = 
+      <JournalDetail journal = {this.props.selectedJourn} resetSelected = {this.handleClick}/>
     }
 
     else {
@@ -82,9 +83,7 @@ class Main extends React.Component {
     }
     return (
       <React.Fragment>
-        {/* <body> */}
         {currentlyVisibleState}
-        {/* </body> */}
       </React.Fragment>
     );
   }
@@ -96,12 +95,6 @@ class Main extends React.Component {
 //   selectedProj: PropTypes.object
 // };
 
-// const mapStateToProps = state => {
-//   return {
-//     selectedJourn: state.selectedJourn.selectedJourn,
-//     selectedProj: state.selectedProj.selectedProj
-//   }
-// }
 
 
 const mapStateToProps = state => {

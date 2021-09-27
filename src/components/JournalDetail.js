@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import clouds from './../img/head-in-the-clouds.jpg';
 import alaska from './../img/alaska.jpg';
 import darkroom from './../img/darkroom-crop.jpg';
+import Contact from './Contact';
 
 import './../../node_modules/swiper/swiper-bundle.min.js';
 
@@ -81,44 +82,14 @@ function JournalDetail(props){
                         </div>
                       </div>
                     </div>
-                    <div className="col-md-12">
-                    </div>
-                    <div className="col-lg-12">
-                      <div className="cmt padDiv">
-                        {/* <form id="comment-form" method="post" action="" role="form">
-                          <div className="row">
-                            <div className="col-lg-6">
-                              <div className="form-group">
-                                <input id="form_name" type="text" name="name" className="form-control" placeholder="Name *" required="required"/>
-                              </div>
-                            </div>
-                            <div className="col-lg-6">
-                              <div className="form-group">
-                                <input id="form_email" type="email" name="email" className="form-control" placeholder="email *" required="required"/>
-                              </div>
-                            </div>
-                            <div className="col-md-12">
-                              <div className="form-group">
-                                <input id="form_name" type="text" name="website" className="form-control" placeholder="Website"/>
-                              </div>
-                            </div>
-                            <div className="col-lg-12">
-                              <div className="form-group">
-                                <textarea id="form_message" name="message" className="form-control" placeholder="Message *" style="height: 200px;" required="required"></textarea>
-                              </div>
-                            </div>
-                            <div className="col-lg-12">
-                              <input type="submit" className="btn btn-defeault btn-send" value="Send message"/>
-                            </div> 
-                          </div> 
-                        </form> */}
-                      </div>
-                    </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
+        </div>
+        <div className="paddsection">
+          <Contact />
         </div>
       </main>
     </React.Fragment>

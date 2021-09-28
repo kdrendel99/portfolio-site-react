@@ -71,7 +71,7 @@ function JournalDetail(props){
                           <p className="mb-30">{journal.description1}</p>
                           <p className="mb-30">{journal.description2}</p>
                           <blockquote>{journal.quote}</blockquote>
-                          <p className="mb-30">{journal.description2}</p>
+                          <p className="mb-30">{journal.description3}</p>
                           <p className="mb-30">{journal.closer}</p>
                         </div>
                       </div>

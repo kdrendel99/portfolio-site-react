@@ -30,8 +30,12 @@ const AllJournals = [
     image: 'darkroom',
     imgDes: "An image of a woman working in a film darkroom.",
     projDate: "11 April 2021",
-    shortDes: "Quis autem vel eum iure reprehenderit qui in ea voluptate.",
-    description: "This is an entry regarding my photography hobby. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+    shortDes: "COMING SOON",
+    description1: "",
+    description2: "",
+    quote: "This journal entry has not been finished yet... Come back soon for updates!",
+    description3: "",
+    closer: "",
     id: 135
   }
 ];

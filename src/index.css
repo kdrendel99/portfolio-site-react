@@ -378,6 +378,10 @@ p {
   color: #b8a07e;
   line-height: 44px;
 }
+.services-block i h3 {
+  color: #b8a07e;
+  line-height: 44px;
+}
 
 .services-slider .swiper-pagination {
   margin-top: 30px;

@@ -119,7 +119,7 @@ function Home(props){
                 <div className="services-block">
                   <i className="fab fa-react"></i>
                   <span>React.js</span>
-                  <p className="separator">Lorem ipsum React details here</p>
+                  <p className="separator">Front-end development</p>
                 </div>
               </div>
 
@@ -127,24 +127,33 @@ function Home(props){
                 <div className="services-block">
                   <i className="fab fa-node-js"></i>
                   <span>Node</span>
-                  <p className="separator">Lorem ipsum node details</p>
+                  <p className="separator">Full stack web development</p>
                 </div>
               </div>
 
               <div className="swiper-slide">
                 <div className="services-block">
                   {/* <i className="bi bi-calendar4-week"></i> */}
-                  <h3 style={{color: "#b8a07e"}}>C#</h3>
+                  <i><h3 style={{color: "#b8a07e"}}>C#</h3></i>
                   <span>C#/.NET</span>
-                  <p className="separator">Lorem ipsum C#/.NET details go here.</p>
+                  <p className="separator">Object oriented back-end</p>
                 </div>
               </div>
 
               <div className="swiper-slide">
                 <div className="services-block">
+                  <i className="fas fa-database"></i>
+                  <span>SQL & NoSQL</span>
+                  <p className="separator">MySQL, MongoDB, Firestore</p>
+                </div>
+              </div>
+              
+
+              <div className="swiper-slide">
+                <div className="services-block">
                   <i className="fab fa-linux"></i>
                   <span>Linux</span>
-                  <p className="separator">Lorem ipsum linux CLI details here</p>
+                  <p className="separator">Command line interface</p>
                 </div>
               </div>
 
@@ -152,7 +161,7 @@ function Home(props){
                 <div className="services-block">
                   <i className="fab fa-github-square"></i>
                   <span>Git</span>
-                  <p className="separator">Lorem ipsum git details go here</p>
+                  <p className="separator">Source control & collaboration</p>
                 </div>
               </div>
 
@@ -161,7 +170,7 @@ function Home(props){
                   {/*  <i className="fab fa-html5"></i> */}
                   <i className="fas fa-tools"></i>
                   <span>Full-Stack Development</span>
-                  <p className="separator">Lorem ipsum Full Stack Development details here</p>
+                  <p className="separator">From HTML to server side</p>
                 </div>
               </div>
             </div>

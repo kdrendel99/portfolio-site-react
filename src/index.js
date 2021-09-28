@@ -4,9 +4,6 @@ import './index.css';
 import App from './components/App';
 
 import '../node_modules/bootstrap/dist/js/bootstrap.bundle';
-// import '../node_modules/bootstrap/scss/_grid.css';
-import '../node_modules/bootstrap/dist/css/bootstrap.min.css'
-import '../src/style.scss';
 import "../node_modules/bootstrap-icons/font/bootstrap-icons.css";
 import '../node_modules/boxicons/css/boxicons.css';
 import '../node_modules/glightbox/dist/js/glightbox';
@@ -27,4 +24,3 @@ ReactDOM.render(
   </Provider>,
   document.getElementById('root')
 );
-

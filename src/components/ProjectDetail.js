@@ -59,7 +59,7 @@ function ProjectDetail(props) {
         <div className="container">
 
           <div className="d-flex justify-content-between align-items-center">
-            <h2>{project.name} Project Details</h2>
+            <h2>{project.name} Details</h2>
             <ol>
               <li><a onClick = {() => resetSelected()}>Home</a></li>
               <li><a href="../index.html#portfolio">Portfolio</a></li>

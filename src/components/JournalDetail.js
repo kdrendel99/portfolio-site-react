@@ -65,7 +65,6 @@ function JournalDetail(props){
                             <ul className="list-unstyled mb-0">
                               <li className="author">by:<a href="#">Karlson Drendel</a></li>
                               <li className="date">date:<a href="#">{journal.projDate}</a></li>
-                              {/* <li className="commont"><i className="ion-ios-heart-outline"></i><a href="#">3 Comments</a></li> */}
                             </ul>
                           </div>
                           <p className="mb-30">{journal.description1}</p>

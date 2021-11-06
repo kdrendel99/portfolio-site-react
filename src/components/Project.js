@@ -1,11 +1,11 @@
 import React, {useEffect} from "react";
 import PropTypes from "prop-types";
+import imitarus from './../img/portfolio/imitarus.jpg';
 import rocket from './../img/portfolio/rocket.jpg';
 import park from './../img/portfolio/nationalpark.jpg';
 import jukebox from './../img/portfolio/jukebox.jpg';
 import factory from './../img/portfolio/factory.jpg';
 import taproom from './../img/portfolio/taproom.png';
-import exchange from './../img/portfolio/exchange.jpg';
 import './../../node_modules/swiper/swiper-bundle.min.js';
 
 function Project(props){
@@ -30,8 +30,8 @@ function Project(props){
         case 'taproom':
           setImg(taproom);
           break;
-        case 'exchange':
-          setImg(exchange);
+        case 'imitarus':
+          setImg(imitarus);
           break;
         default:
           setImg(null);

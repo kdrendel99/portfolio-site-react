@@ -18,7 +18,6 @@ function Home(props){
   const useFocus = () => {
     const containerRef = useRef(null)
     const setFocus = () => {containerRef.current && containerRef.current.focus()}
-    
     return [ containerRef, setFocus ]
   }
 
@@ -67,12 +66,10 @@ function Home(props){
         <div className="hero-content">
           <h1>I am <span className="typed" data-typed-items="Karlson Drendel, a software engineer, a Full-Stack Developer, a Creative Thinker"></span></h1>
           <p>Software Engineer, Full-Stack Developer, creative thinker</p>
-
           <ul className="list-unstyled list-social">
             {/* <li><a href="#"><i className="bi bi-facebook"></i></a></li>*/}
             <li><a href="https://github.com/kdrendel99"><i className="fab fa-github-square"></i></a></li>
-            {/*  <li><a href="#"><i className="bi bi-twitter"></i></a></li>
-            <li><a href="#"><i className="bi bi-instagram"></i></a></li> */}
+            {/*  <li><a href="#"><i className="bi bi-twitter"></i></a></li>*/}
             <li><a href="https://www.linkedin.com/in/karlson-drendel/"><i className="bi bi-linkedin"></i></a></li>
           </ul>
         </div>
@@ -96,13 +93,13 @@ function Home(props){
             </div>
             <div className="col-lg-7">
               <div className="about-descr">
-              <div className='aboutId'>
-                <p className="p-heading">About Me </p>
-                <p className="separator">My name is Karlson Drendel, and I'm a passionate Software Engineer/Full-Stack Developer seeking to kickstart my career as a programmer by gaining industry experience. I'm a recent coding bootcamp graduate looking to learn and grow my skillset in a dynamic work environment. I possess thousands of hours of hands-on, full time experience building and testing web apps, databases, and general full-stack development. I'm a motivated learner, and am always excited to learn new technologies. I also enjoy puzzles, creative thinking, photography, writing music, and bouldering.</p>
+                <div className='aboutId'>
+                  <p className="p-heading">About Me </p>
+                  <p className="separator">My name is Karlson Drendel, and I'm a passionate Front End/Full Stack Software Engineer. I possess over 5 years of professional design experience, and have designed and built dozens of full-stack web applications just like this one. I thrive in dynamic environments where I can learn and grow my skillset surrounded by other equally driven individuals. I additionally offer thousands of hours of hands-on, full-time experience with everything from API design/structuring to basic HTML. I'm a motivated learner, and am always excited to learn new technologies. I also enjoy puzzles, rock-climbing, creative thinking/writing, photography, and recording music.</p>
+                </div>
               </div>
             </div>
 
-            </div>
           </div>
         </div>
       </div>
@@ -119,21 +116,20 @@ function Home(props){
                 <div className="services-block">
                   <i className="fab fa-react"></i>
                   <span>React.js</span>
-                  <p className="separator">Front-end development</p>
+                  <p className="separator">React, Vue, Typescript, Redux</p>
                 </div>
               </div>
 
               <div className="swiper-slide">
                 <div className="services-block">
                   <i className="fab fa-node-js"></i>
-                  <span>Node</span>
+                  <span>Node, Express</span>
                   <p className="separator">Full stack web development</p>
                 </div>
               </div>
 
               <div className="swiper-slide">
                 <div className="services-block">
-                  {/* <i className="bi bi-calendar4-week"></i> */}
                   <i><h3 style={{color: "#b8a07e"}}>C#</h3></i>
                   <span>C#/.NET</span>
                   <p className="separator">Object oriented back-end</p>
@@ -144,7 +140,7 @@ function Home(props){
                 <div className="services-block">
                   <i className="fas fa-database"></i>
                   <span>SQL & NoSQL</span>
-                  <p className="separator">MySQL, MongoDB, Firestore</p>
+                  <p className="separator">MySQL, AWS, MongoDB, Firestore, Apollo, GraphQl</p>
                 </div>
               </div>
               
@@ -167,7 +163,6 @@ function Home(props){
 
               <div className="swiper-slide">
                 <div className="services-block">
-                  {/*  <i className="fab fa-html5"></i> */}
                   <i className="fas fa-tools"></i>
                   <span>Full-Stack Development</span>
                   <p className="separator">From HTML to server side</p>
@@ -181,50 +176,45 @@ function Home(props){
       </div>
       {/* End Services Section
       ======= Portfolio Section ======= */}
-      <div id="portfolio" className="paddsection">
+    <div id="portfolio" className="paddsection">
+      <div className="container">
+        <div className="section-title text-center">
+          <h2>My Portfolio</h2>
+        </div>
+      </div>
 
-        <div className="container">
-          <div className="section-title text-center">
-            <h2>My Portfolio</h2>
+      <div className="container">
+        <div className="row">
+          <div className="col-lg-12 d-flex justify-content-center">
+            <ul id="portfolio-flters">
+              <li onClick={handleFilterKeyChange('*')} className={filterKey === '*' ? 'filter-active': null}>All</li>
+              <li onClick={handleFilterKeyChange('filter-app')} className={filterKey === 'filter-app' ? 'filter-active': null}>JavaScript</li>
+              <li onClick={handleFilterKeyChange('filter-card')} className={filterKey === 'filter-card' ? 'filter-active': null}>C#</li> 
+            </ul>
           </div>
         </div>
 
-        <div className="container">
-
-        <div className="row">
-                <div className="col-lg-12 d-flex justify-content-center">
-                  <ul id="portfolio-flters">
-                    <li onClick={handleFilterKeyChange('*')} className={filterKey === '*' ? 'filter-active': null}>All</li>
-                    <li onClick={handleFilterKeyChange('filter-app')} className={filterKey === 'filter-app' ? 'filter-active': null}>JavaScript</li>
-                    <li onClick={handleFilterKeyChange('filter-card')} className={filterKey === 'filter-card' ? 'filter-active': null}>C#</li> 
-
-                  </ul>
-                </div>
-              </div>
-              
-              <div className="row portfolio-container" 
-              ref={containerLoaded} onLoad={setContainerLoaded}
-              >
-                  {props.projList.map((project) =>
-                    <Project
-                      whenProjClicked = { props.onProjSelection }
-                      name={project.name}
-                      image={project.image}
-                      imgDes={project.imgDes}
-                      type={project.type}
-                      category={project.category}
-                      projDate={project.projDate}
-                      githubUrl={project.githubUrl}
-                      shortDes={project.shortDes}
-                      description={project.description}
-                      id={project.id}
-                      key={project.id}/>
-                  )}
-                </div>
-
+        <div className="row portfolio-container" ref={containerLoaded} onLoad={setContainerLoaded}>
+          {props.projList.map((project) => 
+            <Project
+              whenProjClicked = { props.onProjSelection }
+              name={project.name}
+              image={project.image}
+              imgDes={project.imgDes}
+              type={project.type}
+              category={project.category}
+              projDate={project.projDate}
+              githubUrl={project.githubUrl}
+              shortDes={project.shortDes}
+              description={project.description}
+              description2={project.description2}
+              id={project.id}
+              key={project.id}
+            />
+          )}
         </div>
-
       </div>
+    </div>
         {/* End Portfolio Section */}
 
         {/* ======= Journal Section =======  */}
@@ -259,7 +249,6 @@ function Home(props){
             </div>
           </div>
         </div>
-
       </div>
       {/* <!-- End Journal Section --> */}
         
@@ -280,8 +269,8 @@ function Home(props){
 }
 
 Home.propTypes = {
-projList: PropTypes.array,
-onProjSelection: PropTypes.func
+  projList: PropTypes.array,
+  onProjSelection: PropTypes.func
 };
 
 export default Home;

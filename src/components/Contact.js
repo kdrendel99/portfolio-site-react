@@ -1,16 +1,6 @@
 import React from "react";
 
 function Contact(){
-  // const [sentMessage, setMessage] = React.useState(false);
-
-  // const validateForm = () => {
-  //   const name = document.querySelector('[name="name"]').value;
-  //   const email = document.querySelector('[name="email"]').value;
-  //   const subject = document.querySelector('[name="subject"]').value;
-  //   const message = document.querySelector('[name="message"]').value;
-  //   //validation occurs here
-  //   //if validation returns OK, send all of the above to the api.
-  // }
 
   function renderForm(){
     return (
@@ -42,35 +32,13 @@ function Contact(){
           </div>
 
           <div className="mt-0">
-            <input type="submit" className="btn btn-default btn-send" value="Send message"
-            // onClick = {() => validateForm()}
-            />
+            <input type="submit" className="btn btn-default btn-send" value="Send message"/>
           </div>
           <input type="hidden" name="_captcha" value="false"/>
         </div>
       </form>
     )
   }
-
-  // function renderThankYou(){
-  //   return (
-  //     <div id="about" className="paddsection">
-  //       <div className="container">
-  //         <div className="row justify-content-between">
-
-  //           <div className="col-lg-7">
-  //             <div className="about-descr">
-  //               <h2>Thank you!</h2>
-  //               <div className="portfolio-description">
-  //                 <p>Your message has been sent. Thanks for inquiring, I'll be in touch soon!</p>
-  //               </div>
-  //             </div>
-  //           </div>
-  //         </div>
-  //       </div>
-  //     </div>
-  //   )
-  // }
 
   return (
     <React.Fragment>
@@ -88,7 +56,6 @@ function Contact(){
               </div>
             </div>
             <div className="col-lg-6">
-              {/* {sentMessage ? renderThankYou() : renderForm()} */}
               {renderForm()}
             </div>
           </div>

@@ -30,8 +30,7 @@ html,body
   line-height: 1;
   font-weight: 600;
   letter-spacing: 1px;
-  font-family: "Playfair Display", sans-serif;
-  font-style: italic;
+  font-family: "Playfair Display", serif;
 }
 
 #header .logo a {

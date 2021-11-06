@@ -75,7 +75,7 @@ function ProjectDetail(props) {
 
   return(
     <React.Fragment>
-      <section className="breadcrumbs" style={{paddingTop:"60px"}}>
+      <section className="breadcrumbs">
         <div className="container">
           <div className="d-flex justify-content-between align-items-center">
             <h2>{project.name} Details</h2>
@@ -88,15 +88,15 @@ function ProjectDetail(props) {
       </section>
 
       <div className="portfolioId">
-        <div id="portfolio-details" className="portfolio-details" style={{margin:"50px"}}>
-          <div className="container g-0">
+        <div id="portfolio-details" className="portfolio-details">
+          <div className="container mobile_contents g-0">
             <div className="row gy-4">
               <div className="col-lg-8">
 
                 {project.image === 'imitarus' &&
                   <div className="portfolio-details-slider swiper">
                   <div className="swiper-wrapper align-items-center">
-                    <div className="swiper-slide" data-swiper-autoplay="3500">
+                    <div className="swiper-slide first" data-swiper-autoplay="3500">
                       <img src={img} alt="" className="swiper_img"/>
                     </div>
                     <div className="swiper-slide gif" data-swiper-autoplay="9500">

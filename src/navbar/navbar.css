@@ -173,11 +173,6 @@ html,body
   color: #fff;
 }
 
-/* you wrote this. it goes with the two button option in header. */
-/* .mobile-nav-toggle.bi-list {
-  color: #4b4a4a;
-} */
-
 
 @media (max-width: 991px) {
   .mobile-nav-toggle {

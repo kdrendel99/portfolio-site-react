@@ -40,7 +40,11 @@ function Home(props){
         })
 
       // cleanup
-      return () => isotope.current.destroy()
+      return () => { 
+        if (isotope.current) {
+          isotope.current.destroy() 
+        }
+      }
     }, [])
 
 

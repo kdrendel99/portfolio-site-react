@@ -2,7 +2,9 @@ import * as c from './../actions/ActionTypes';
 
 const initialState = {
   selectedJourn: null,
-  selectedProj: null
+  selectedProj: null,
+  selectedNav: null,
+  navClicked: false
 }
 
 export default (state = initialState, action) => {
@@ -24,6 +26,15 @@ export default (state = initialState, action) => {
         return Object.assign({}, state, {
           selectedProj: null
         });
+      case c.ADD_SELECTED_NAV:
+        return Object.assign({}, state, {
+          selectedNav: id
+        })
+      case c.TOGGLE_NAV_CLICK:
+        return Object.assign({}, state, {
+          selectedNav: id,
+          navClicked: !state.navClicked
+        })
       // default:
       //   return state;
   }

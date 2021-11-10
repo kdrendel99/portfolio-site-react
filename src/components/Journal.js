@@ -6,8 +6,11 @@ import darkroom from './../img/darkroom-crop.jpg';
 
 import './../../node_modules/swiper/swiper-bundle.min.js';
 
+import { useHistory } from 'react-router-dom'
+
 function Journal(props){
     const [img, setImg] = React.useState(null);
+    const history = useHistory()
 
     function renderImage(){
       let incomingImg = props.image;
@@ -30,16 +33,19 @@ function Journal(props){
     useEffect(() => {
       renderImage();
     })
-  return (
 
+    function selectJournal(id){
+      props.whenJournClicked(id)
+      history.push("journal-details")
+    }
+
+  return (
     <React.Fragment>
       <div className="col-lg-4 col-md-6">
         <div className="journal-info">
-          {/* <a href={img}> */}
-            <img src={img} className="img-responsive" alt={`${props.imgDes}`} onClick = {() => props.whenJournClicked(props.id)} style={{cursor: "pointer"}}/>
-          {/* </a> */}
+          <img src={img} className="img-responsive" alt={`${props.imgDes}`} onClick = {() => selectJournal(props.id)} style={{cursor: "pointer"}}/>
           <div className="journal-txt">
-            <h4><a onClick = {() => props.whenJournClicked(props.id)}>{props.name}</a></h4>
+            <h4><a onClick = {() => selectJournal(props.id)}>{props.name}</a></h4>
             <p className="separator">{props.shortDes}</p>
           </div>
         </div>

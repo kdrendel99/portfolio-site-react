@@ -1,5 +1,5 @@
 import React, {useEffect} from "react";
-import PropTypes from "prop-types";
+import { connect } from 'react-redux';
 import clouds from './../img/head-in-the-clouds.jpg';
 import alaska from './../img/alaska.jpg';
 import darkroom from './../img/darkroom-crop.jpg';
@@ -7,9 +7,12 @@ import Contact from './Contact';
 
 import './../../node_modules/swiper/swiper-bundle.min.js';
 
+import { useHistory } from 'react-router-dom'
+
 function JournalDetail(props){
     const [img, setImg] = React.useState(null);
-    const { journal, resetSelected } = props;
+    const [journal] = React.useState(props.selectedJourn)
+    const history = useHistory()
 
     function renderImage(){
       let incomingImg = journal.image;
@@ -30,15 +33,27 @@ function JournalDetail(props){
     }
   
     useEffect(() => {
-      renderImage();
-    })
+      if (journal !== null){
+        renderImage();
+      } else {
+        returnHome()
+      }
+    },[journal])
 
     useEffect(() => {
       window.scrollTo(0, 0)
     }, [])
+
+    function returnHome(){
+      history.push("/")
+    }
+
+
   return (
 
     <React.Fragment>
+      {journal === null ? returnHome() : 
+        <React.Fragment>
 
     <main id="main">
         <div className="main-content paddsection">
@@ -59,12 +74,12 @@ function JournalDetail(props){
 
                         <div className="content-main single-post padDiv">
                           <div className="journal-txt">
-                            <h4><a href="#">{journal.name}</a></h4>
+                            <h4><a>{journal.name}</a></h4>
                           </div>
                           <div className="post-meta">
                             <ul className="list-unstyled mb-0">
-                              <li className="author">by:<a href="#">Karlson Drendel</a></li>
-                              <li className="date">date:<a href="#">{journal.projDate}</a></li>
+                              <li className="author">by:<a>Karlson Drendel</a></li>
+                              <li className="date">date:<a>{journal.projDate}</a></li>
                             </ul>
                           </div>
                           <p className="mb-30">{journal.description1}</p>
@@ -85,13 +100,18 @@ function JournalDetail(props){
           <Contact />
         </div>
       </main>
+      </React.Fragment>
+      }
     </React.Fragment>
   );
 }
 
-JournalDetail.propTypes = {
-  journal: PropTypes.object.isRequired,
-  resetSelected: PropTypes.func
-};
+const mapStateToProps = state => {
+  return {
+    selectedJourn: state.selectedJourn
+  }
+}
+
+JournalDetail = connect(mapStateToProps)(JournalDetail);
 
 export default JournalDetail;

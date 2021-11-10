@@ -33,9 +33,6 @@ const runAnimations = function() {
     el.addEventListener('scroll', listener)
   }
 
-  // Mobile nav toggle went here
-
-
   // Back to top button
   let backtotop = select('.back-to-top')
   if (backtotop) {
@@ -98,23 +95,6 @@ const runAnimations = function() {
   const portfolioLightbox = GLightbox({
     selector: '.portfolio-lightbox'
   });
-
-  // Portfolio details slider
-  // new Swiper('.portfolio-details-slider', {
-  //   speed: 3000,
-  //   loop: true,
-  //   spaceBetween: 5,
-  //   autoplay: {
-  //     delay: 10000,
-  //     disableOnInteraction: false
-  //   },
-  //   pagination: {
-  //     el: '.swiper-pagination',
-  //     type: 'bullets',
-  //     clickable: true
-  //   },
-  // });
-
 
     new Swiper('.portfolio-details-slider', {
     speed: 3000,

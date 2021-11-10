@@ -8,8 +8,11 @@ import factory from './../img/portfolio/factory.jpg';
 import taproom from './../img/portfolio/taproom.png';
 import './../../node_modules/swiper/swiper-bundle.min.js';
 
+import { Link, useHistory } from 'react-router-dom'
+
 function Project(props){
     const [img, setImg] = React.useState(null);
+    const history = useHistory()
 
     function renderImage(){
       let incomingImg = props.image;
@@ -41,18 +44,22 @@ function Project(props){
     useEffect(() => {
       renderImage();
     })
+
+    function selectProject(id){
+      props.whenProjClicked(id)
+      history.push("project-details")
+    }
   return (
 
     <React.Fragment>
-          <div className={`col-lg-4 col-md-6 portfolio-item filter-${props.type}`} 
-          >
-            <img src={img} className="img-fluid" alt={`${props.imgDes}`}/>
-            <div className="portfolio-info">
-              <h4>{props.name}</h4>
-              <p>{props.shortDes}</p>
-              <a onClick = {() => props.whenProjClicked(props.id)}className="details-link" title="More Details"><i className="bx bx-link"></i></a>
-            </div>
-          </div>
+      <div className={`col-lg-4 col-md-6 portfolio-item filter-${props.type}`}>
+        <img src={img} className="img-fluid" alt={`${props.imgDes}`}/>
+        <div className="portfolio-info">
+          <h4>{props.name}</h4>
+          <p>{props.shortDes}</p>
+          <a onClick = {() => selectProject(props.id)}className="details-link" title="More Details"><i className="bx bx-link"></i></a>
+        </div>
+      </div>
     </React.Fragment>
   );
 }

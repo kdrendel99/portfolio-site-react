@@ -1,13 +1,9 @@
 import { connect } from 'react-redux';
 import React from 'react';
 import Home from './Home';
-import ProjectDetail from './ProjectDetail';
-import JournalDetail from './JournalDetail';
 import AllProjects from './AllProjects';
 import AllJournals from './AllJournals';
 import * as c from './../actions/ActionTypes';
-import PropTypes from "prop-types";
-import index from './../index.css';
 
 class Main extends React.Component {
   constructor(props) {
@@ -62,39 +58,21 @@ class Main extends React.Component {
 
   render(){
 
-    let currentlyVisibleState = null;
-
-    if (this.props.selectedProj != null) {
-      currentlyVisibleState = <ProjectDetail project = {this.props.selectedProj} resetSelected = {this.handleClick}/>;
-    }
-    else if (this.props.selectedJourn != null){
-      currentlyVisibleState = 
-      <JournalDetail journal = {this.props.selectedJourn} resetSelected = {this.handleClick}/>
-    }
-
-    else {
-      currentlyVisibleState = <Home 
+      const currentlyVisibleState = <Home 
       projList={this.state.projList} 
       onProjSelection={this.handleChangingSelectedProj} 
       journList={this.state.journList}
       onJournSelection={this.handleChangingSelectedJourn}
       resetSelections={this.handleClick}
       />;
-    }
+
     return (
       <React.Fragment>
         {currentlyVisibleState}
       </React.Fragment>
     );
   }
-
 }
-
-// Main.propTypes = {
-//   selectedJourn: PropTypes.object,
-//   selectedProj: PropTypes.object
-// };
-
 
 
 const mapStateToProps = state => {

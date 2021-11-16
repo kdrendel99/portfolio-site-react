@@ -73,7 +73,7 @@ function Home(props){
           <ul className="list-unstyled list-social">
             {/* <li><a href="#"><i className="bi bi-facebook"></i></a></li>*/}
             <li><a href="https://github.com/kdrendel99"><i className="fab fa-github-square"></i></a></li>
-            {/*  <li><a href="#"><i className="bi bi-twitter"></i></a></li>*/}
+            <li><a href="https://twitter.com/karlsondrendel"><i className="bi bi-twitter"></i></a></li>
             <li><a href="https://www.linkedin.com/in/karlson-drendel/"><i className="bi bi-linkedin"></i></a></li>
           </ul>
         </div>

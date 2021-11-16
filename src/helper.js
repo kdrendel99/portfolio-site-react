@@ -1,8 +1,6 @@
 import './../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import Swiper from 'swiper/swiper-bundle.min';
 import Typed from "typed.js";
-import Isotope from 'isotope-layout';
-import GLightbox from 'glightbox';
 
 const runAnimations = function() {
   // Easy selector helper function
@@ -13,18 +11,6 @@ const runAnimations = function() {
       return [...document.querySelectorAll(el)]
     } else {
       return document.querySelector(el)
-    }
-  }
-
-  // Easy event listener function
-    const on = (type, el, listener, all = false) => {
-    let selectEl = select(el, all)
-    if (selectEl) {
-      if (all) {
-        selectEl.forEach(e => e.addEventListener(type, listener))
-      } else {
-        selectEl.addEventListener(type, listener)
-      }
     }
   }
 
@@ -89,11 +75,6 @@ const runAnimations = function() {
         spaceBetween: 20
       }
     }
-  });
-
-  // Initiate portfolio lightbox 
-  const portfolioLightbox = GLightbox({
-    selector: '.portfolio-lightbox'
   });
 
     new Swiper('.portfolio-details-slider', {

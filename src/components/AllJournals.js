@@ -26,7 +26,7 @@ const AllJournals = [
     id: 125
   },
   {
-    name: "DAKROOM PHOTOGRAPHY",
+    name: "DARKROOM PHOTOGRAPHY",
     image: 'darkroom',
     imgDes: "An image of a woman working in a film darkroom.",
     projDate: "11 April 2021",

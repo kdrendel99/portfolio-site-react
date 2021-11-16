@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from "react";
-import { useHistory, Link } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import { connect } from 'react-redux';
 import * as c from './../actions/ActionTypes';
 import navAnimations from '../navbar/navbar';

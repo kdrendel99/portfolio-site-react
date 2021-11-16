@@ -54,7 +54,7 @@ function Project(props){
     <React.Fragment>
       <div className={`col-lg-4 col-md-6 portfolio-item filter-${props.type}`}>
         <img src={img} className="img-fluid" alt={`${props.imgDes}`}/>
-        <div className="portfolio-info">
+        <div className="portfolio-info" onClick = {() => selectProject(props.id)} style={{cursor:"pointer"}}>
           <h4>{props.name}</h4>
           <p>{props.shortDes}</p>
           <a onClick = {() => selectProject(props.id)}className="details-link" title="More Details"><i className="bx bx-link"></i></a>

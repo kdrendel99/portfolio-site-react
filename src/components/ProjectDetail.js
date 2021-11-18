@@ -9,10 +9,10 @@ import './../navbar/navbar.css';
 import 'bootstrap';
 
 import imitarus from './../img/portfolio/imitarus.jpg';
-import register from './../img/portfolio/register.gif';
-import login from './../img/portfolio/login.gif';
-import post from './../img/portfolio/post.gif';
-import newpost from './../img/portfolio/newpost.gif';
+import register from './../img/portfolio/register.mp4';
+import login from './../img/portfolio/login.mp4';
+import post from './../img/portfolio/post.mp4';
+import newpost from './../img/portfolio/newpost.mp4';
 import home from './../img/portfolio/home.png';
 
 import rocket from './../img/portfolio/rocket.jpg';
@@ -101,29 +101,54 @@ function ProjectDetail(props) {
               <div className="container mobile_contents g-0">
                 <div className="row gy-4">
                   <div className="col-lg-8">
-
                     {project.image === 'imitarus' &&
                       <div className="portfolio-details-slider swiper">
                       <div className="swiper-wrapper align-items-center">
+
                         <div className="swiper-slide first" data-swiper-autoplay="3500">
                           <img src={img} alt="" className="swiper_img"/>
                         </div>
-                        <div className="swiper-slide gif" data-swiper-autoplay="9500">
-                          <img src={login} alt="" className="swiper_img"/>
+
+                        <div className="swiper-slide gif" data-swiper-autoplay="13000">
+                          <div className="swiper-wrapper">
+                            <video playsInline autoPlay loop muted className="videoInsert swiper_img" >
+                              <source src={login} type="video/mp4"/>
+                              Your browser does not support the video tag.
+                            </video>
+                          </div>
                         </div>
+
                         <div className="swiper-slide gif" data-swiper-autoplay="20000">
-                          <img src={newpost} alt="" className="swiper_img"/>
+                          <div className="swiper-wrapper">
+                            <video playsInline autoPlay loop muted className="videoInsert swiper_img" >
+                              <source src={newpost} type="video/mp4"/>
+                              Your browser does not support the video tag.
+                            </video>
+                          </div>
                         </div>
+
                         <div className="swiper-slide gif" data-swiper-autoplay="8500">
-                          <img src={post} alt="" className="swiper_img"/>
+                          <div className="swiper-wrapper">
+                            <video playsInline autoPlay loop muted className="videoInsert swiper_img" >
+                              <source src={post} type="video/mp4"/>
+                              Your browser does not support the video tag.
+                            </video>
+                          </div>
                         </div>
-                        <div className="swiper-slide gif" data-swiper-autoplay="19500">
-                          <img src={register} alt="" className="swiper_img"/>
-                        </div>
+                        <div className="swiper-slide gif" data-swiper-autoplay="13500">
+                          <div className="swiper-wrapper">
+                            <video playsInline autoPlay loop muted className="videoInsert swiper_img">
+                              <source src={register} type="video/mp4"/>
+                              Your browser does not support the video tag.
+                            </video>
+                          </div>
+                        </div> 
+
                         <div className="swiper-slide gif" data-swiper-autoplay="3500">
                           <img src={home} alt="" className="swiper_img"/>
                         </div>
                       </div>
+
                       <div className="swiper-pagination"></div>
                     </div>
                     }

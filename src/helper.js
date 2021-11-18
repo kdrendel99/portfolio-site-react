@@ -79,8 +79,12 @@ const runAnimations = function() {
 
     new Swiper('.portfolio-details-slider', {
     speed: 3000,
-    loop: true,
     spaceBetween: 5,
+    // loop: true,
+    // loopedSlides: 6,
+    followFinger: true,
+    grabCursor: true,
+    simulateTouch: true,
     autoplay: {
       delay: 50,
       disableOnInteraction: false
@@ -91,6 +95,7 @@ const runAnimations = function() {
       clickable: true
     },
   });
+  
 }
 
 export default runAnimations;

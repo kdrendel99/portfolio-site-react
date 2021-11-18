@@ -1,6 +1,17 @@
 /* before 991 github is high */
 
-
+.videoInsert {
+  /* position: absolute;  */
+  /* right: 0; 
+  bottom: 0; */
+  min-width: 100%; 
+  min-height: 100%;
+  width: auto; 
+  height: auto; 
+  /* z-index: -100; */
+  background-size: cover;
+  overflow: hidden;
+}
 
 body {
   background: #ffffff;
@@ -595,9 +606,6 @@ p {
   .portfolio-details {
     margin:50px;
   }
-  .swiper_img {
-    border-radius: 15px;
-  }
 }
 
 /* ======= mobile view ======= */
@@ -636,6 +644,8 @@ p {
   }
   .swiper_img {
     border-radius: 5px;
+    border-radius: 15px;
+    /* border: 3px solid red; */
   }
 }
 

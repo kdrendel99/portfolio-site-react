@@ -151,6 +151,15 @@ function Home(props){
 
               <div className="swiper-slide">
                 <div className="services-block">
+                  <i className="fas fa-database"></i>
+                  <span>SQL & NoSQL</span>
+                  <p className="separator">MySQL, MongoDB, Firestore</p>
+                </div>
+              </div>
+              
+
+              <div className="swiper-slide">
+                <div className="services-block">
                   <i className="fab fa-linux"></i>
                   <span>Linux</span>
                   <p className="separator">Command line interface</p>
@@ -253,6 +262,14 @@ function Home(props){
             </div>
           </div>
         </div>
+
+      </div>
+      {/* <!-- End Journal Section --> */}
+        
+
+      {/* ======= Contact Section ======= */}
+      <div id="contact" className="paddsection">
+        <Contact sendMessageTrue = {props.sendMessageTrue}/>
       </div>
       {/* <!-- End Journal Section --> */}
         
@@ -273,8 +290,8 @@ function Home(props){
 }
 
 Home.propTypes = {
-  projList: PropTypes.array,
-  onProjSelection: PropTypes.func
+projList: PropTypes.array,
+onProjSelection: PropTypes.func
 };
 
 export default Home;

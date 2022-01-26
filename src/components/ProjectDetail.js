@@ -8,6 +8,7 @@ import 'isotope-layout';
 import './../navbar/navbar.css';
 import 'bootstrap';
 
+//imitarus
 import imitarus from './../img/portfolio/imitarus/imitarus.jpg';
 import register from './../img/portfolio/imitarus/register.mp4';
 import login from './../img/portfolio/imitarus/login.mp4';
@@ -15,6 +16,7 @@ import post from './../img/portfolio/imitarus/post.mp4';
 import newpost from './../img/portfolio/imitarus/newpost.mp4';
 import home from './../img/portfolio/imitarus/home.png';
 
+//jukebox
 import loading from './../img/portfolio/jukebox/loading.mp4';
 import main from './../img/portfolio/jukebox/main.mp4';
 import jukeboxsongs from './../img/portfolio/jukebox/jukeboxsongs.mp4';
@@ -22,7 +24,15 @@ import jukeboxtooyoung from './../img/portfolio/jukebox/jukeboxtooyoung.mp4';
 import jukeboxtooold from './../img/portfolio/jukebox/jukeboxtooold.mp4';
 import jukebox from './../img/portfolio/jukebox/jukebox.jpg';
 
+//realtime
 import realtime from './../img/portfolio/realtime/realtime.png';
+import facedemo from './../img/portfolio/realtime/realtime-demo.mov';
+import loadingrealtime from './../img/portfolio/realtime/loading.mp4';
+import joinroom from './../img/portfolio/realtime/join-a-room.mp4';
+import nocam from './../img/portfolio/realtime/no-camera-access.mp4';
+import group from './../img/portfolio/realtime/group.mp4';
+
+//projects without video demos
 import stocks from './../img/portfolio/stocks.png';
 import rocket from './../img/portfolio/rocket.png';
 import park from './../img/portfolio/nationalpark.jpg';
@@ -56,8 +66,7 @@ function ProjectDetail(props) {
         setSwiperImages(loading, main, jukeboxsongs, jukeboxtooyoung, jukeboxtooold, jukebox )
         break;
       case 'realtime':
-        setImg(realtime);
-        setImg2(false)
+        setSwiperImages(realtime, facedemo, loadingrealtime, joinroom, nocam, realtime)
         break;
       case 'imitarus':
         setSwiperImages(imitarus, login, newpost, post, register, home)
@@ -106,13 +115,8 @@ function ProjectDetail(props) {
   }
 
   function checkVideo(){
-    if ([img2] !== null){
-      console.log('video is true')
-      return true;
-    } else {
-      console.log('video is false')
-      return false;
-    }
+    const projectHasVideo = ['imitarus','jukebox','realtime']
+    return projectHasVideo.includes(project.image)
   }
 
   return(
@@ -137,11 +141,17 @@ function ProjectDetail(props) {
                 <div className="row gy-4">
                   <div className="col-lg-8">
 
-                    {(project.image === 'imitarus' || project.image === 'jukebox') && 
+                    {checkVideo && 
                       <div className="portfolio-details-slider swiper">
                       <div className="swiper-wrapper align-items-center">
 
                         {project.image === 'imitarus' &&
+                          <div className="swiper-slide first" data-swiper-autoplay="3500">
+                            <img src={img} alt="" className="swiper_img"/>
+                          </div>
+                        }
+
+                        {project.image === 'realtime' &&
                           <div className="swiper-slide first" data-swiper-autoplay="3500">
                             <img src={img} alt="" className="swiper_img"/>
                           </div>
@@ -157,7 +167,6 @@ function ProjectDetail(props) {
                             </div>
                           </div>
                         }
-
 
                         <div className="swiper-slide gif" data-swiper-autoplay="13000">
                           <div className="swiper-wrapper">
@@ -204,7 +213,7 @@ function ProjectDetail(props) {
                     </div>
                     }
 
-                    {(project.image !== 'imitarus' && project.image !== 'jukebox') && 
+                    {!checkVideo && 
                       <div className="portfolio-details-slider swiper-container">
                         <div className="swiper-wrapper align-items-center">
                           <img src={img} alt={`${project.imgDes}`}/>

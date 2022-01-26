@@ -1,4 +1,5 @@
 import React from "react";
+import resume from '../img/Karlson-Drendel-Resume.doc'
 
 function Contact(){
 
@@ -52,6 +53,7 @@ function Contact(){
                   <li><span>Vancouver WA, United States</span></li>
                   <li><span>(360)-553-8451</span></li>
                   <li><span><a className="email" href="mailto:kdrendel99@gmail.com?subject=Email via your portfolio site">kdrendel99@gmail.com</a></span></li>
+                  <li><a href={resume} download style={{color: "#b8a07e"}}>Resume</a></li>
                 </ul>
               </div>
             </div>

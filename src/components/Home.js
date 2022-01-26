@@ -102,8 +102,8 @@ function Home(props){
                   <p className="separator">My name is Karlson Drendel, and I'm a passionate Front End/Full Stack Software Engineer. I possess over 5 years of professional design experience, and have designed and built dozens of full-stack web applications just like this one. I thrive in dynamic environments where I can learn and grow my skillset surrounded by other equally driven individuals. I additionally offer thousands of hours of hands-on, full-time experience with everything from API design/structuring to basic HTML. I'm a motivated learner, and am always excited to learn new technologies. I also enjoy puzzles, rock-climbing, creative thinking/writing, photography, and recording music.</p>
                 </div>
               </div>
+              {/* <a href="/images/myw3schoolsimage.jpg" download style={{marginTop:"10px"}}>Resume</a> */}
             </div>
-
           </div>
         </div>
       </div>
@@ -271,15 +271,6 @@ function Home(props){
       <div id="contact" className="paddsection">
         <Contact sendMessageTrue = {props.sendMessageTrue}/>
       </div>
-      {/* <!-- End Journal Section --> */}
-        
-
-      {/* ======= Contact Section ======= */}
-      <div id="contact" className="paddsection">
-        <Contact sendMessageTrue = {props.sendMessageTrue}/>
-      </div>
-      {/* End Contact Section */}
-
     </main>
     {/* End #main */}
 

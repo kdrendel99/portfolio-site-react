@@ -45,10 +45,10 @@ const AllProjects = [
     type: "app",
     category: "Web Application",
     projDate: "11 April 2021",
-    githubUrl: "https://github.com/kdrendel99/High-School-Jukebox",
+    githubUrl: "https://high-school-jukebox.web.app/",
     shortDes: "Feeling nostalgic? This JavaScript web app uses OATH2 token-based authentication to retrieve you a personalized, genre-specific list of songs from your teenage years.",
-    description: "This application was created with the nostalgic music-enthusiast in mind. High School Jukebox was brought to life during a collaborative team week project through Epicodus. Our project was heavily centered around building an immersive, polished UI with seamless Spotify integration. From the moment the application is launched, the user is greeted with a flickering neon-inspired loading screen. This application was built using vanilla JavaScript backed by OAUTH2, NPM, Webpack, and -most importantly- the 'Spotify for Developers' API. The user inputs their name, date of birth, and desired music genre. Then, said user's high school age range is calculated, and (using token-based authentication) is fetched a list of the most popular singles filtered by the their 'genre' input. My team incorporated embedded Spotify playback URL's allowing the user to listen to the greatest hits of their golden years instantly.",
-    description2:"",
+    description: "This application was created with the nostalgic music-enthusiast in mind. High School Jukebox was brought to life during a collaborative team week project through Epicodus. Our project was heavily centered around building an immersive, polished UI with seamless Spotify integration. From the moment the application is launched, the user is greeted with a flickering neon-inspired loading screen. This application was built using vanilla JavaScript backed by OAUTH2, NPM, Webpack, and -most importantly- the 'Spotify for Developers' API.",
+    description2:"The user inputs their name, date of birth, and desired music genre. Then, said user's high school age range is calculated, and (using token-based authentication) is fetched a list of the most popular singles filtered by the their 'genre' input. My team incorporated embedded Spotify playback URL's allowing the user to listen to the greatest hits of their golden years instantly.",
     id: 45
   },
   {

@@ -217,6 +217,7 @@ function Home(props){
               type={project.type}
               category={project.category}
               projDate={project.projDate}
+              hostedUrl={project.hostedUrl}
               githubUrl={project.githubUrl}
               shortDes={project.shortDes}
               description={project.description}

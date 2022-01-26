@@ -22,10 +22,10 @@ import jukeboxtooyoung from './../img/portfolio/jukebox/jukeboxtooyoung.mp4';
 import jukeboxtooold from './../img/portfolio/jukebox/jukeboxtooold.mp4';
 import jukebox from './../img/portfolio/jukebox/jukebox.jpg';
 
-import rocket from './../img/portfolio/rocket.jpg';
+import realtime from './../img/portfolio/realtime/realtime.png';
+import stocks from './../img/portfolio/stocks.png';
+import rocket from './../img/portfolio/rocket.png';
 import park from './../img/portfolio/nationalpark.jpg';
-import factory from './../img/portfolio/factory.jpg';
-import taproom from './../img/portfolio/taproom.png';
 
 function ProjectDetail(props) {
   const [img, setImg] = React.useState(null);
@@ -55,16 +55,16 @@ function ProjectDetail(props) {
       case 'jukebox':
         setSwiperImages(loading, main, jukeboxsongs, jukeboxtooyoung, jukeboxtooold, jukebox )
         break;
-      case 'factory':
-        setImg(factory);
-        setImg2(false)
-        break;
-      case 'taproom':
-        setImg(taproom);
+      case 'realtime':
+        setImg(realtime);
         setImg2(false)
         break;
       case 'imitarus':
         setSwiperImages(imitarus, login, newpost, post, register, home)
+        break;
+      case 'stocks':
+        setImg(stocks);
+        setImg2(false)
         break;
       default:
         setImg(null);
@@ -219,7 +219,8 @@ function ProjectDetail(props) {
                       <ul>
                         <li><strong>Category</strong>: {project.category}</li>
                         <li><strong>Project date</strong>: {project.projDate}</li>
-                        <li><strong>Project URL</strong>: <a href={`${project.githubUrl}`}>Here</a></li>
+                        {project.hostedUrl? <li><strong>Hosted URL</strong>: <a href={`${project.hostedUrl}`}>Here</a></li> : null}
+                        <li><strong>Github URL</strong>: <a href={`${project.githubUrl}`}>Here</a></li>
                       </ul>
                     </div>
                     <div className="portfolio-description">

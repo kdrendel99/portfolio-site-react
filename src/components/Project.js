@@ -1,13 +1,13 @@
 import React, {useEffect} from "react";
 import PropTypes from "prop-types";
-// import imitarus from './../img/portfolio/imitarus/imitarus.jpg';
-import imitarus from './../img/portfolio/imitarus/imitarus-banner.jpg';
-import rocket from './../img/portfolio/rocket.jpg';
+import imitarus from './../img/portfolio/imitarus/imitarus.jpg';
+// import imitarus from './../img/portfolio/imitarus/imitarus-banner.jpg';
+import rocket from './../img/portfolio/rocket.png';
 import park from './../img/portfolio/nationalpark.jpg';
-// import jukebox from './../img/portfolio/jukebox/jukebox.jpg';
-import jukebox from './../img/portfolio/jukebox/jukebox-banner.jpg';
-import factory from './../img/portfolio/factory.jpg';
-import taproom from './../img/portfolio/taproom.png';
+import jukebox from './../img/portfolio/jukebox/jukebox.jpg';
+import stocks from './../img/portfolio/stocks.png';
+// import jukebox from './../img/portfolio/jukebox/jukebox-banner.jpg';
+import realtime from './../img/portfolio/realtime/realtime.png';
 import './../../node_modules/swiper/swiper-bundle.min.js';
 
 import { Link, useHistory } from 'react-router-dom'
@@ -29,14 +29,14 @@ function Project(props){
         case 'jukebox':
           setImg(jukebox);
           break;
-        case 'factory':
-          setImg(factory);
-          break;
-        case 'taproom':
-          setImg(taproom);
+        case 'realtime':
+          setImg(realtime);
           break;
         case 'imitarus':
           setImg(imitarus);
+          break;
+        case 'stocks':
+          setImg(stocks);
           break;
         default:
           setImg(null);
